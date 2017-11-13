@@ -1,0 +1,25 @@
+{
+  "name": "stora-verkefni2",
+  "version": "1.0.0",
+  "description": "Hópverkefni",
+  "main": ".eslintrc.js",
+  "dependencies": {
+    "browser-sync": "^2.18.13",
+    "eslint": "^4.11.0",
+    "sass": "^1.0.0-beta.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aheimdal/stora-verkefni2.git"
+  },
+  "author": "Anton H. Heimdal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aheimdal/stora-verkefni2/issues"
+  },
+  "homepage": "https://github.com/aheimdal/stora-verkefni2#readme"
+}
