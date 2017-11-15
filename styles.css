@@ -1,0 +1,11 @@
+img {
+  width: 30%;
+  height: 30%; }
+
+.card {
+  margin-bottom: 50px; }
+
+.title {
+  font-size: 11px;
+  font-weight: bold;
+  font-style: italic; }
