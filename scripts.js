@@ -48,9 +48,10 @@ var program = (function() {
       }
           showBorder();
           showcategories(data.categories[1]);
-          for (var i = 0; i < lengd2; i++) {
-          showvideos(data.videos[i]);
-          }
+          showvideos(data.videos[0]);
+          showvideos(data.videos[2]);
+          showvideos(data.videos[3]);
+
           showBorder();
           showcategories(data.categories[2]);
           for (var i = 1; i < 4; i++) {
@@ -64,11 +65,13 @@ var program = (function() {
     function showHeading() {
       var section1 = document.createElement("section");
       section1.setAttribute("class", "heading");
+      section1.setAttribute("style", "width:1200px;")
       document.querySelector("main").appendChild(section1);
 
       // býr til html texta í section1
       var headtext = document.createElement("h1");
       var text = document.createTextNode("Myndbandaleigan");
+      headtext.setAttribute("style", "padding-bottom:20px;")
       headtext.appendChild(text);
       section1.appendChild(headtext);
 
@@ -77,19 +80,19 @@ var program = (function() {
       // býr til html section1
       var divAdal = document.createElement("div");
       divAdal.setAttribute("class", "videos");
-      divAdal.setAttribute("style", "width:400px; display:flex;")
+      divAdal.setAttribute("style", "width:350px; margin-right:20px;")
       document.querySelector("main").appendChild(divAdal);
 
       // býr til container div fyrir Nýleg myndbönd
       var container = document.createElement("div");
       container.setAttribute("class", "nyleg");
-      container.setAttribute("style", "width:400px;")
+    //  container.setAttribute("style", "float:left;min-width:300px;max-width:300px; margin-right:20px;")
       divAdal.appendChild(container);
 
       // býr til html img í dl
       var img = new Image();
       img.src = data.poster;
-      img.style.width = '400px';
+      img.style.width = '350px';
       container.appendChild(img);
 
       var ptitill = document.createElement('p');
@@ -103,6 +106,7 @@ var program = (function() {
     function showcategories(data) {
       var section1 = document.createElement("section");
       section1.setAttribute("class", "categories");
+      section1.setAttribute("style", "width:1200px;")
       document.querySelector("main").appendChild(section1);
 
       var container = document.createElement("div");
