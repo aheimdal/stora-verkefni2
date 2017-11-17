@@ -1,0 +1,75 @@
+
+
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+
+  background-color: rgba(75, 75, 75, 1);
+}
+
+main {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+video {
+  width: 100%;
+}
+
+button {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  padding: 0.5em;
+
+  width: 15%;
+  max-width: 6em;
+  }
+
+button:focus {
+  outline: none;
+}
+
+button img {
+  max-width: 5em;
+  width: 100%;
+}
+
+
+.heading{
+  color:rgba(255, 255, 255, 1);
+  }
+
+
+
+.video{
+  position: relative;
+  z-index: 1;
+
+}
+
+.vidbtn{
+  position: absolute;
+  z-index: 2;
+  right: 50%;
+  bottom: 50%;
+  padding: 0;
+
+  width: 10%;
+}
+
+/* div nafn! */
+
+div {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 0.5em;
+
+  padding-top: 1em;
+}
+
+.footer {
+  color: rgba(255, 255, 255, 1);
+  padding-top: 1em;
+}

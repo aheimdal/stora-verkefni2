@@ -20,6 +20,7 @@ main {
   flex-direction: row;
   margin: 0 auto;
   max-width: 1200px;
+<<<<<<< HEAD
   padding: 1.25em;
   color: rgb(255,255,255);
   background-color: rgb(48,48,48);
@@ -145,3 +146,24 @@ main {
 }
 
 /*Stílerisering fyrir videosíðu*/
+=======
+  padding: 20px;
+  color: white;
+  background-color: #303030; }
+
+img {
+  width: auto;
+  height: auto;
+  position: relative; }
+
+.block-Timer {
+  margin-left: auto; }
+
+.card {
+  margin-bottom: 50px; }
+
+.title {
+  font-size: 11px;
+  font-weight: bold;
+  font-style: italic; }
+>>>>>>> 7f5cbdadb0b9485d9e7456e7db8eb9297d0031f2
