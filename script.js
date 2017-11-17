@@ -7,145 +7,231 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 /**
- * Bílaleit. Sækir gögn með Ajax á apis.is.
+ * Sækir gögn með Ajax í json skrá
  */
 var program = (function() {
   var container;
 
   /**
-	 * Setur upp allar private breytur með því að nota querySelector
-	 * Setur eventlistener á submit
+	 *
+	 *
 	*/
   function init(site) {
-  //  container = document.querySelector('.results');
 
     var request = new XMLHttpRequest();
 
     // sækir slóð með GET
     request.open('GET', API_URL, true);
 
-    // Fall sem keyrir við svar frá vefþjón
-    // request mun innihalda gögn um HTTP kall
+    /* Fall sem keyrir við svar frá vefþjón
+    * request mun innihalda gögn um HTTP kall
+    * kallar á föll sem búa til html síðunnar
+    */
     request.onload = function() {
-        var data =JSON.parse(request.response);
-        var x = "";
-        var lengd2 = data.categories[1].videos.length;
-        var tolur = data.categories[1].videos;
-        console.log("lengd" +lengd2);
-        console.log("tolur" + tolur);
-        showHeading();
+          var data =JSON.parse(request.response);
+          var videoslength = data.videos.length;
+          console.log(videoslength);
+          var catvideoslength1 = data.categories[0].videos.length;
+          var catvideoslength2 = data.categories[1].videos.length;
+          var catvideoslength3 = data.categories[2].videos.length;
+          var catefylki1 = data.categories[0].videos;
+          var catefylki2 = data.categories[1].videos;
+          var catefylki3 = data.categories[2].videos;
+          console.log(catvideoslength1);
+          console.log(catvideoslength2);
+          console.log(catvideoslength3);
+          console.log(catefylki1);
+          console.log(catefylki2);
+          console.log(catefylki3);
 
-    /*    for (var i = 0; i < 4; i++) {
-          showvideos(data.videos[i]);
-        //  console.log(data.videos[i]);
-      }*/
-      /*  for (var i = 0; i < 3; i++) {
-          showcate(data.categories[i]);
-      //    console.log(data.categories[i]);
-    } */  showcategories(data.categories[0]);
-          for (var i = 0; i < 2; i++) {
-          showvideos(data.videos[i]);
-      }
+          showHeading();
+          showcategories(data.categories[0]);
+          //for (var i = 0; i < 2; i++) {
+            for (var i = 0; i < catvideoslength1; i++) {
+              showvideos(data.videos[i]);
+            }
           showBorder();
           showcategories(data.categories[1]);
+
           showvideos(data.videos[0]);
           showvideos(data.videos[2]);
           showvideos(data.videos[3]);
 
           showBorder();
           showcategories(data.categories[2]);
-          for (var i = 1; i < 4; i++) {
-          showvideos(data.videos[i]);
-      }
-
-
+            for (var i = 0; i < catvideoslength3; i++) {
+              showvideos(data.videos[i]);
+          }
     };
     request.send();
 
+    /*
+    * Fall sem býr til aðalfyrirsögn með html
+    */
     function showHeading() {
       var section1 = document.createElement("section");
-      section1.setAttribute("class", "heading");
-      section1.setAttribute("style", "width:1200px;")
+      section1.setAttribute("class", "leigan");
       document.querySelector("main").appendChild(section1);
 
-      // býr til html texta í section1
       var headtext = document.createElement("h1");
       var text = document.createTextNode("Myndbandaleigan");
-      headtext.setAttribute("style", "padding-bottom:20px;")
+      headtext.setAttribute("class", "myndbandaleigan");
       headtext.appendChild(text);
       section1.appendChild(headtext);
 
     }
-    function showvideos(data) {
-      // býr til html section1
-      var divAdal = document.createElement("div");
-      divAdal.setAttribute("class", "videos");
-      divAdal.setAttribute("style", "width:350px; margin-right:20px;")
-      document.querySelector("main").appendChild(divAdal);
 
-      // býr til container div fyrir Nýleg myndbönd
-      var container = document.createElement("div");
-      container.setAttribute("class", "nyleg");
-    //  container.setAttribute("style", "float:left;min-width:300px;max-width:300px; margin-right:20px;")
-      divAdal.appendChild(container);
-
-      // býr til html img í dl
-      var img = new Image();
-      img.src = data.poster;
-      img.style.width = '350px';
-      container.appendChild(img);
-
-      var timer = document.createElement("div")
-      timer.className = "block-Timer";
-      container.appendChild(timer);
-      timer.innerHTML = data.duration;
-
-      var ptitill = document.createElement('p');
-      ptitill.setAttribute("style", "padding-bottom:50px;");
-      var titill = document.createTextNode(data.title);
-      ptitill.appendChild(titill);
-      container.appendChild(ptitill);
-
-
-    }
+    /*
+    * Fall sem býr til fyrirsagnir flokka með html
+    */
     function showcategories(data) {
       var section1 = document.createElement("section");
       section1.setAttribute("class", "categories");
-      section1.setAttribute("style", "width:1200px;")
       document.querySelector("main").appendChild(section1);
 
       var container = document.createElement("div");
       container.setAttribute("class", "categor");
       section1.appendChild(container);
 
-      // býr til html img í dl
-      var dl = document.createElement('dl');
-
-      var ddtitill = document.createElement('h2');
-      ddtitill.setAttribute("style", "padding-bottom:20px;");
+      var cattitill = document.createElement('h2');
+      cattitill.setAttribute("class", "categoriestitill");
       var titill = document.createTextNode(data.title);
-
-      for (var i = 0; i < data.videos.length; i++) {
-        console.log(data.videos[i]);
-
-      }
-    //   console.log(data.videos[0]);
-
-      ddtitill.appendChild(titill);
-
-      dl.appendChild(ddtitill);
-
-
-
-      container.appendChild(dl);
+      cattitill.appendChild(titill);
+      container.appendChild(cattitill);
    }
+
+   /*
+   * Fall sem býr til línu á milli flokka með html
+   */
    function showBorder() {
-     var borderline = document.createElement("div");
-     borderline.setAttribute("class", "border");
-     borderline.setAttribute("style", "width:900px; margin:0 auto; border-top:solid rgb(255,255,255); padding-bottom:30px; padding-top:30px;");
-     document.querySelector("main").appendChild(borderline);
-
+     var border = document.createElement("div");
+     border.setAttribute("class", "border");
+     document.querySelector("main").appendChild(border);
    }
+
+    /*
+    * Fall sem býr til myndir af videoum með titli, aldri videos og lengd með html
+    * Fallið reiknar út úr epoch tíma hve langt er síðan video var sett inn.
+    * Fallið reiknar út lengd videos.
+    */
+    function showvideos(data) {
+
+      var section = document.createElement("section");
+      section.setAttribute("class", "videos");
+      document.querySelector("main").appendChild(section);
+
+      var container = document.createElement("div");
+      container.setAttribute("class", "flokkar");
+      section.appendChild(container);
+
+      var img = document.createElement("IMG");
+      img.src = data.poster;
+      img.setAttribute("class", "image");
+      container.appendChild(img);
+
+      // reiknar út lengd videos í mínútum og sekúndum
+      // út frá gefnum tíma í sekúndum
+      var dur = data.duration;
+      var min = Math.floor(dur/60);
+      var sec = dur%60;
+      var duration = document.createElement('div');
+      if (sec < 10) {
+        sec = "0"+sec;
+      }
+      if (min < 10) {
+        min = "0"+min;
+      }
+      var durtext = document.createTextNode(min+":"+sec);
+      duration.setAttribute("class", "duration");
+      duration.appendChild(durtext);
+      container.appendChild(duration);
+
+      var ptitill = document.createElement('p');
+      var titill = document.createTextNode(data.title);
+      ptitill.setAttribute("class", "titill");
+      ptitill.appendChild(titill);
+      container.appendChild(ptitill);
+
+      // reiknar út hve langt er liðið síðan videoið var sett inn
+      // út frá epoch timestamp
+      today=new Date();
+      var todaysec = Math.round(today.getTime()/1000);
+      var startDate = new Date(data.created); // Your timezone!
+      var seconds = Math.round(startDate.getTime()/1000);
+      var mismunur = Math.floor(todaysec-seconds);
+
+      var year = 31536000;
+      var month = 2592000;
+      var week = 604800;
+      var day = 60*60*24;
+      var hour = 3600;
+
+      // ár
+      if (year < mismunur) {
+        var arum = Math.floor(mismunur/year);
+        var parum = document.createElement('p');
+        parum.setAttribute("class", "lidinn");
+        if (arum > 1) {
+        var parumtext = document.createTextNode("Fyrir " + parum +  " árum síðan");
+      } else {
+          var parumtext = document.createTextNode("Fyrir " + parum +  " ári síðan");
+      }
+        parum.appendChild(parumtext);
+        container.appendChild(parum);
+
+      // mánuðir
+      } else if (month < mismunur) {
+        var manudum = Math.floor(mismunur/month);
+        var pmanudum = document.createElement('p');
+        pmanudum.setAttribute("class", "lidinn");
+        if (manudum > 1) {
+        var pmanudumtext = document.createTextNode("Fyrir " + manudum +  " mánuðum síðan");
+      } else {
+        var pmanudumtext = document.createTextNode("Fyrir " + manudum +  " mánuði síðan");
+      }
+        pmanudum.appendChild(pmanudumtext);
+        container.appendChild(pmanudum);
+
+      // vikur
+      } else if (week < mismunur) {
+        var vikum = Math.floor(mismunur/week);
+        var pvikum = document.createElement('p');
+        pvikum.setAttribute("class", "lidinn");
+        if (vikum > 1) {
+        var pvikumtext = document.createTextNode("Fyrir " + vikum +  " vikum síðan");
+      } else {
+        var pvikumtext = document.createTextNode("Fyrir " + vikum +  " viku síðan");
+      }
+        pvikum.appendChild(pvikumtext);
+        container.appendChild(pvikum);
+
+      // dagar
+      } else if (day < mismunur) {
+        var dogum =  Math.floor(mismunur/day);
+        var pdogum = document.createElement('p');
+        pdogum.setAttribute("class", "lidinn");
+        if (dogum > 1) {
+        var pdogumtext = document.createTextNode("Fyrir " + dogum +  " dögum síðan");
+      } else {
+        var pdogumtext = document.createTextNode("Fyrir " + dogum +  " dögum síðan");
+      }
+        pdogum.appendChild(pdogumtext);
+        container.appendChild(pdogum);
+
+      // klukkustundir
+      } else {
+        var klst =  Math.floor(mismunur/hour);
+        var pklst = document.createElement('p');
+        pklst.setAttribute("class", "lidinn");
+        if (klst > 1) {
+        var klsttext = document.createTextNode("Fyrir " + klst +  " klukkustundum síðan");
+      } else {
+        var klsttext = document.createTextNode("Fyrir " + klst +  " klukkustund síðan");
+      }
+        pklst.appendChild(pklsttext);
+        container.appendChild(pklst);
+      }
+    }
   }
 
   return {

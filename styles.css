@@ -1,38 +1,147 @@
 * {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 html {
   box-sizing: border-box;
   font-size: 16px;
-  background-color: #303030;
-  color: white; }
+  background-color: rgb(48,48,48);
+  color: rgb(255,255,255);
+}
 
 *, *:before, *:after {
-  box-sizing: inherit; }
+  box-sizing: inherit;
+}
 
 main {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
+  flex-direction: row;
   margin: 0 auto;
-  max-width: 1000px;
-  padding: 20px;
-  color: white;
-  background-color: #303030; }
+  max-width: 1200px;
+  padding: 1.25em;
+  color: rgb(255,255,255);
+  background-color: rgb(48,48,48);
+}
 
-img {
-  width: auto;
-  height: auto;
-  position: relative; }
+/* Stílerisering fyrir aðalsíðu */
+.leigan {
+  width:100%
+}
 
-.block-Timer {
-  margin-left: auto; }
+.myndbandaleigan {
+  padding-bottom:1.25em;
+}
 
-.card {
-  margin-bottom: 50px; }
+.videos {
+  width:31%;
+  height:80%;
+  margin-right:0.375em;
+  margin-left: 0.875em;
+  margin-bottom:1.25em;
+  margin-top:1.25em;
+}
 
-.title {
-  font-size: 11px;
-  font-weight: bold;
-  font-style: italic; }
+.flokkar {
+  z-index:1;
+  position:relative;
+}
+
+.titill {
+  text-overflow: clip;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.image {
+  width:100%;
+  max-width:100%;
+  position:relative;
+  z-index:2;
+}
+
+.duration {
+  width:3.125em;
+  height:1.25em;
+  position:absolute;
+  z-index:3;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  right:0.3125em;
+  bottom:6.875em;
+}
+
+.titill {
+  font-weight:bold;
+  font-size:1.125em;
+}
+.lidinn {
+  padding-bottom:3.125em;
+  padding-top:0.3125em;
+}
+
+.categories {
+  width:1200px;
+}
+
+.categoriestitill {
+  padding-bottom:0px;
+}
+
+.border {
+  width:75%;
+  margin:0 auto;
+  border-top:solid #eee;
+  padding-bottom:1.25em;
+  padding-top:1.875em;
+}
+
+/* breaking point skölun*/
+@media (max-width: 1000px) {
+  .videos {
+    padding-left: 7px;
+    margin-bottom: 0px;
+    width: 47%;
+  }
+  .image {
+    width: 100%;
+    max-width: 100%;
+  }
+  .lidinn {
+    padding-bottom: 0px;
+  }
+  .duration {
+    bottom: 60px;
+  }
+  .border {
+    margin-top: 60px;
+    margin-bottom: 20px;
+    padding-top: 10px;
+  }
+}
+
+/*breaking point skölun*/
+@media (max-width: 706px) {
+  .videos {
+    margin-bottom: 0px;
+    width: 100%;
+    padding-left: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+  .image {
+    width: 100%;
+    max-width: 100%;
+  }
+  .lidinn {
+    padding-bottom: 0px;
+  }
+  .border {
+    margin-top: 40px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+  }
+}
+
+/*Stílerisering fyrir videosíðu*/
