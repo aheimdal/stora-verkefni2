@@ -1,0 +1,14 @@
+To do:
+
+JS
+- Footer texta breytt í link
+- Tengja við aðalsíðuna
+
+- gera function á "small.mp4"
+
+css:
+- Header centered
+- Footer centered
+- Play takki á video centered
+
+- laga "div" (Á að heita divbtn í JS en virkar ekki í CSS)
