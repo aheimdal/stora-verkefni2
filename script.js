@@ -153,11 +153,11 @@ var program = (function() {
   }
 })();
 
-
+/*
 // video function
 
 function videobuttons() {
-/* Rewind takki*/
+// Rewind takki
 var rwndbtn = document.createElement('button');
 var rwnd = document.createElement('img');
 
@@ -170,7 +170,7 @@ rwndbtn.addEventListener('click', function () {
 
 });
 
-/* Play takki */
+// Play takki
 var playbtn = document.createElement('button');
 var play = document.createElement('img');
 play.src = ('img\\play.svg')
@@ -193,7 +193,7 @@ playbtn.addEventListener('click', function () {
   }
 });
 
-/* Mute takki */
+// Mute takki
 var mutebtn = document.createElement('button');
 var mute = document.createElement('img');
 mute.src = ('img\\mute.svg')
@@ -216,7 +216,7 @@ mutebtn.addEventListener('click', function () {
   }
 });
 
-/* Fullscreen */
+// Fullscreen
 var fullbtn = document.createElement('button');
 var fullscr = document.createElement('img');
 fullscr.src = ('img\\fullscreen.svg')
@@ -227,7 +227,7 @@ fullbtn.addEventListener('click', function () {
   video.requestFullScreen();
 });
 
-/* Rewind takki*/
+// Rewind takki
 var nextbtn = document.createElement('button');
 var next = document.createElement('img');
 next.src = ('img\\next.svg')
@@ -244,3 +244,4 @@ var video = document.querySelector('video');
 
 videobuttons();
 }
+*/
