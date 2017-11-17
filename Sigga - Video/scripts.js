@@ -93,6 +93,7 @@ nextbtn.addEventListener('click', function () {
 });
 }
 
+
 function myndband() {
 var video = document.querySelector('video');
 
