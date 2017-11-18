@@ -45,7 +45,10 @@ var program = (function() {
           console.log(catefylki2);
           console.log(catefylki3);
 
+
+
           showHeading();
+<<<<<<< HEAD
           showcategories(data.categories[0]);
             for (var j = 0; j < data.categories[0].videos.length; j++) {
               showvideos(data.videos[data.categories[0].videos[j]-1]);
@@ -63,6 +66,24 @@ var program = (function() {
               showvideos(data.videos[data.categories[2].videos[j]-1]);
           }
 
+=======
+          for(const {title, videos} of data.categories){
+            showcategories({title});
+            for(const id of videos){
+              const video = data.videos.find(v => v.id === id);
+              showvideos(video);
+              //do whatever with video
+            }
+            showBorder();
+          }
+
+
+
+
+
+
+
+>>>>>>> 5c1703781216e5b6056be76b0cf3eb633fe6bbd0
     };
     request.send();
 
