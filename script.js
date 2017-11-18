@@ -1,4 +1,5 @@
 var API_URL = '/videos.json';
+var url = '/videos.json?id=';
 
 document.addEventListener('DOMContentLoaded', function () {
   var site = document.querySelector('.videos');
@@ -46,22 +47,22 @@ var program = (function() {
 
           showHeading();
           showcategories(data.categories[0]);
-          //for (var i = 0; i < 2; i++) {
-            for (var i = 0; i < catvideoslength1; i++) {
-              showvideos(data.videos[i]);
+            for (var j = 0; j < data.categories[0].videos.length; j++) {
+              showvideos(data.videos[data.categories[0].videos[j]-1]);
             }
+
           showBorder();
           showcategories(data.categories[1]);
-
-          showvideos(data.videos[0]);
-          showvideos(data.videos[2]);
-          showvideos(data.videos[3]);
+            for (var j = 0; j < data.categories[1].videos.length; j++) {
+              showvideos(data.videos[data.categories[1].videos[j]-1]);
+            }
 
           showBorder();
           showcategories(data.categories[2]);
-            for (var i = 0; i < catvideoslength3; i++) {
-              showvideos(data.videos[i]);
+            for (var j = 0; j < data.categories[2].videos.length; j++) {
+              showvideos(data.videos[data.categories[2].videos[j]-1]);
           }
+
     };
     request.send();
 
@@ -127,7 +128,21 @@ var program = (function() {
       var img = document.createElement("IMG");
       img.src = data.poster;
       img.setAttribute("class", "image");
+      var poster = document.querySelector(".image");
+      var id = data.id;
+      console.log(id);
+  
+      img.addEventListener("click", function(event) {
+        video(event, id);
+      });
       container.appendChild(img);
+
+      function video(e, id) {
+        e.preventDefault();
+      //  var poster = document.querySelector(".image");
+        alert("id"+id);
+      //  alert(poster);
+    }
 
       // reiknar út lengd videos í mínútum og sekúndum
       // út frá gefnum tíma í sekúndum
@@ -233,6 +248,9 @@ var program = (function() {
       }
     }
   }
+
+
+
 
   return {
     init: init

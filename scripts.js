@@ -180,7 +180,6 @@ var program = (function() {
         pklst.appendChild(pklsttext);
         container.appendChild(pklst);
       }
-
     }
 
     function showcategories(data) {
@@ -211,26 +210,6 @@ var program = (function() {
      borderline.setAttribute("style", "width:900px; margin:0 auto; border-top:solid #eee; padding-bottom:20px; padding-top:30px;");
      document.querySelector("main").appendChild(borderline);
    }
-
-  /* function timeElapsed(mismunur) {
-     var year = 31536000;
-     var month = 2592000;
-     var week = 604800;
-     var day = 60*60*24;
-     var hour = 3600;
-
-     if (year < mismunur) {
-       console.log("hæ");
-     } else if (month < mismunur) {
-       console.log("Fyrir X mánuði/mánuðum síðan");
-     } else if (week < mismunur) {
-       console.log("Fyrir X viku/vikum síðan");
-     } else if (day < mismunur) {
-       console.log("Fyrir X degi/dögum síðan");
-     } else {
-       console.log("Fyrir X klukkustund/um síðan");
-     }
-   }*/
   }
 
   return {

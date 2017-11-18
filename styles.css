@@ -20,7 +20,6 @@ main {
   flex-direction: row;
   margin: 0 auto;
   max-width: 1200px;
-<<<<<<< HEAD
   padding: 1.25em;
   color: rgb(255,255,255);
   background-color: rgb(48,48,48);
@@ -28,7 +27,8 @@ main {
 
 /* Stílerisering fyrir aðalsíðu */
 .leigan {
-  width:100%
+  width:100%;
+  margin-left: 1em;
 }
 
 .myndbandaleigan {
@@ -84,6 +84,7 @@ main {
 
 .categories {
   width:1200px;
+  margin-left: 1em;
 }
 
 .categoriestitill {
@@ -100,6 +101,9 @@ main {
 
 /* breaking point skölun*/
 @media (max-width: 1000px) {
+  .leigan {
+    margin-left: 1.5em;
+  }
   .videos {
     padding-left: 7px;
     margin-bottom: 0px;
@@ -115,6 +119,9 @@ main {
   .duration {
     bottom: 60px;
   }
+  .categories {
+    margin-left: 1.5em;
+  }
   .border {
     margin-top: 60px;
     margin-bottom: 20px;
@@ -124,6 +131,9 @@ main {
 
 /*breaking point skölun*/
 @media (max-width: 706px) {
+  .leigan {
+    margin-left: 0em;
+  }
   .videos {
     margin-bottom: 0px;
     width: 100%;
@@ -138,6 +148,9 @@ main {
   .lidinn {
     padding-bottom: 0px;
   }
+  .categories {
+    margin-left: 0em;
+  }
   .border {
     margin-top: 40px;
     margin-bottom: 10px;
@@ -146,10 +159,10 @@ main {
 }
 
 /*Stílerisering fyrir videosíðu*/
-=======
+/*
   padding: 20px;
   color: white;
-  background-color: #303030; }
+  background-color: #303030; }*/
 
 img {
   width: auto;
@@ -166,4 +179,3 @@ img {
   font-size: 11px;
   font-weight: bold;
   font-style: italic; }
->>>>>>> 7f5cbdadb0b9485d9e7456e7db8eb9297d0031f2
