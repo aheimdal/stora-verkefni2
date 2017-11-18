@@ -44,24 +44,25 @@ var program = (function() {
           console.log(catefylki2);
           console.log(catefylki3);
 
+
+
           showHeading();
-          showcategories(data.categories[0]);
-          //for (var i = 0; i < 2; i++) {
-            for (var i = 0; i < catvideoslength1; i++) {
-              showvideos(data.videos[i]);
+          for(const {title, videos} of data.categories){
+            showcategories({title});
+            for(const id of videos){
+              const video = data.videos.find(v => v.id === id);
+              showvideos(video);
+              //do whatever with video
             }
-          showBorder();
-          showcategories(data.categories[1]);
-
-          showvideos(data.videos[0]);
-          showvideos(data.videos[2]);
-          showvideos(data.videos[3]);
-
-          showBorder();
-          showcategories(data.categories[2]);
-            for (var i = 0; i < catvideoslength3; i++) {
-              showvideos(data.videos[i]);
+            showBorder();
           }
+
+
+
+
+
+
+
     };
     request.send();
 
