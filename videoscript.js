@@ -18,6 +18,7 @@ function video() {
 
 // Video section
   var sectionvid = document.createElement("section");
+  sectionvid.setAttribute("class", "sectionvid");
   var video = document.createElement("video");
   video.setAttribute("class","video");
   document.body.appendChild(video);
@@ -28,6 +29,7 @@ function video() {
 
 // takkar
 var sectbutt = document.createElement("section");
+sectbutt.setAttribute("class", "sectbutt");
 var divbtn = document.createElement("div");
 sectbutt.appendChild(divbtn);
 
