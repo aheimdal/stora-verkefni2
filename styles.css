@@ -209,7 +209,7 @@ img {
     padding: 1em;
     }
 
-    .video{
+  .video {
     position: relative;
     z-index: 1;
     width: 100%;
@@ -236,9 +236,13 @@ img {
     justify-content: center;
 
   }
+  .tilbaka {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 1);
+    padding-bottom:10px;
+  }
 
   .footer {
-    color: rgba(255, 255, 255, 1);
     padding: 1em;
     font-weight: bold;
     display: flex;

@@ -158,10 +158,10 @@ var program = (function() {
       //  alert("id"+id);
       //  alert(poster);
     //  var id = id;
-      var idid = id;
+      var idnumber = id;
       sessionStorage.setItem('Id', id);
     //  console.log("Session: "+sessionStorage.getItem('Id'));
-      window.location.href = '/video.html?id='+idid;
+      window.location.href = '/video.html?id='+idnumber;
     //  localStorage.name = 'Remy';
 
     //  console.log(localStorage.name);

@@ -181,9 +181,11 @@ footer1.setAttribute("class", "footer");
 footer1.setAttribute("style", "width:1200px;");
 document.querySelector("main").appendChild(footer1);
 
-var foottext = document.createElement("p");
+var foottext = document.createElement("a");
 var text = document.createTextNode("Til Baka");
-foottext.setAttribute("style", "padding-bottom:10px;");
+foottext.setAttribute("class", "tilbaka");
+foottext.setAttribute("href", "index.html");
+//foottext.setAttribute("style", "padding-bottom:10px;");
 foottext.appendChild(text);
 footer1.appendChild(foottext);
 
