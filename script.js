@@ -48,8 +48,7 @@ var program = (function() {
 
 
           showHeading();
-<<<<<<< HEAD
-          showcategories(data.categories[0]);
+      /*    showcategories(data.categories[0]);
             for (var j = 0; j < data.categories[0].videos.length; j++) {
               showvideos(data.videos[data.categories[0].videos[j]-1]);
             }
@@ -64,9 +63,8 @@ var program = (function() {
           showcategories(data.categories[2]);
             for (var j = 0; j < data.categories[2].videos.length; j++) {
               showvideos(data.videos[data.categories[2].videos[j]-1]);
-          }
+          }*/
 
-=======
           for(const {title, videos} of data.categories){
             showcategories({title});
             for(const id of videos){
@@ -77,13 +75,6 @@ var program = (function() {
             showBorder();
           }
 
-
-
-
-
-
-
->>>>>>> 5c1703781216e5b6056be76b0cf3eb633fe6bbd0
     };
     request.send();
 
@@ -152,7 +143,7 @@ var program = (function() {
       var poster = document.querySelector(".image");
       var id = data.id;
       console.log(id);
-  
+
       img.addEventListener("click", function(event) {
         video(event, id);
       });
@@ -163,6 +154,8 @@ var program = (function() {
       //  var poster = document.querySelector(".image");
         alert("id"+id);
       //  alert(poster);
+      sessionStorage.id = gildi;
+      sessionStorage.gildi = JSON.stringify(gildi);
     }
 
       // reiknar út lengd videos í mínútum og sekúndum
