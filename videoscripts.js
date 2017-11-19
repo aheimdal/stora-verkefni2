@@ -1,7 +1,40 @@
+var API_URL = '/videos.json?id=';
+
+function allt() {
+
+
+  var id = sessionStorage.getItem('Id');
+  console.log("Mynd nr. : "+sessionStorage.getItem('Id'));
+  //  var gildi = JSON.parse(sessionStorage.gildi);
+  console.log("Myndin er númer: "+id);
+
+
+  var request = new XMLHttpRequest();
+
+  // sækir slóð með GET
+  request.open('GET', API_URL+sessionStorage.getItem('Id'), true);
+
+  request.onload = function() {
+    var data =JSON.parse(request.response);
+
+    var videoslength = data.videos.length;
+    console.log(videoslength);
+    console.log("data"+data);
+
+    for (var i = 0; i < videoslength; i++) {
+      if (sessionStorage.getItem('Id') == data.videos[i].id) {
+        video(data.videos[i]);
+  }
+}
+
+
+  };
+  request.send();
 
 
 
-function video() {
+function video(data) {
+
 
 // Header
     var section1 = document.createElement("section");
@@ -11,7 +44,7 @@ function video() {
 
     // býr til html texta í section1
     var headtext = document.createElement("h1");
-    var text = document.createTextNode("Big Bunny");
+    var text = document.createTextNode(data.title);
     headtext.setAttribute("style", "padding-bottom:10px;");
     headtext.appendChild(text);
     section1.appendChild(headtext);
@@ -20,7 +53,7 @@ function video() {
   var video = document.createElement("video");
   video.setAttribute("class","video");
   document.body.appendChild(video);
-  video.src = 'videos/bunny.mp4';
+  video.src = data.video;
 
   document.querySelector("main").appendChild(sectionvid);
   sectionvid.appendChild(video);
@@ -155,5 +188,6 @@ foottext.appendChild(text);
 footer1.appendChild(foottext);
 
 }
+}
 
-video();
+allt();

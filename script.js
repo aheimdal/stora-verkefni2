@@ -11,8 +11,6 @@ document.addEventListener('DOMContentLoaded', function () {
  * Sækir gögn með Ajax í json skrá
  */
 var program = (function() {
-  var container;
-
   /**
 	 *
 	 *
@@ -32,6 +30,7 @@ var program = (function() {
           var data =JSON.parse(request.response);
           var videoslength = data.videos.length;
           console.log(videoslength);
+          console.log("data"+data);
           var catvideoslength1 = data.categories[0].videos.length;
           var catvideoslength2 = data.categories[1].videos.length;
           var catvideoslength3 = data.categories[2].videos.length;
@@ -48,7 +47,7 @@ var program = (function() {
 
 
           showHeading();
-<<<<<<< HEAD
+
       /*    showcategories(data.categories[0]);
 =======
     /*      showcategories(data.categories[0]);
@@ -156,10 +155,18 @@ var program = (function() {
       function video(e, id) {
         e.preventDefault();
       //  var poster = document.querySelector(".image");
-        alert("id"+id);
+      //  alert("id"+id);
       //  alert(poster);
-      sessionStorage.id = gildi;
-      sessionStorage.gildi = JSON.stringify(gildi);
+    //  var id = id;
+      var idid = id;
+      sessionStorage.setItem('Id', id);
+    //  console.log("Session: "+sessionStorage.getItem('Id'));
+      window.location.href = '/video.html?id='+idid;
+    //  localStorage.name = 'Remy';
+
+    //  console.log(localStorage.name);
+
+  //    sessionStorage.gildi = JSON.stringify(gildi);
     }
 
       // reiknar út lengd videos í mínútum og sekúndum
