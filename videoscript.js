@@ -30,8 +30,6 @@ function video() {
 // takkar
 var sectbutt = document.createElement("section");
 sectbutt.setAttribute("class", "sectbutt");
-var divbtn = document.createElement("div");
-sectbutt.appendChild(divbtn);
 
 document.querySelector("main").appendChild(sectbutt);
 /* Rewind takki*/
@@ -40,7 +38,7 @@ rwndbtn.setAttribute('class','takkar');
 var rwnd = document.createElement('img');
 rwnd.src = ('img/back.svg');
 rwndbtn.appendChild(rwnd);
-divbtn.appendChild(rwndbtn);
+sectbutt.appendChild(rwndbtn);
 rwndbtn.addEventListener('click', function () {
     video.currentTime -= 3;
 
@@ -52,7 +50,7 @@ playbtn.setAttribute('class','takkar');
 var play = document.createElement('img');
 play.src = ('img/play.svg')
 playbtn.appendChild(play);
-divbtn.appendChild(playbtn);
+sectbutt.appendChild(playbtn);
 
 // play takki, overlay
 var overbtn = document.createElement('button');
@@ -103,7 +101,7 @@ mutebtn.setAttribute('class','takkar');
 var mute = document.createElement('img');
 mute.src = ('img/mute.svg')
 mutebtn.appendChild(mute);
-divbtn.appendChild(mutebtn);
+sectbutt.appendChild(mutebtn);
 
 mutebtn.addEventListener('click', function () {
   if (video.muted == false) {
@@ -127,7 +125,7 @@ fullbtn.setAttribute('class','takkar');
 var fullscr = document.createElement('img');
 fullscr.src = ('img/fullscreen.svg')
 fullbtn.appendChild(fullscr);
-divbtn.appendChild(fullbtn);
+sectbutt.appendChild(fullbtn);
 
 fullbtn.addEventListener('click', function () {
   var elem = document.getElementById("video");
@@ -146,7 +144,7 @@ nextbtn.setAttribute('class','takkar');
 var next = document.createElement('img');
 next.src = ('img/next.svg')
 nextbtn.appendChild(next);
-divbtn.appendChild(nextbtn);
+sectbutt.appendChild(nextbtn);
 
 nextbtn.addEventListener('click', function () {
     video.currentTime += 3;
