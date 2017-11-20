@@ -79,6 +79,18 @@ var program = (function() {
           }
 
     };
+    request.onerror = function() {
+        showHeading();
+        var villudiv = document.createElement("div");
+        villudiv.setAttribute("class", "villudiv");
+        document.querySelector("main").appendChild(villudiv);
+
+        var villa = document.createElement("p");
+        var villutext = document.createTextNode("Gat ekki hlaðið gögnum");
+        villa.setAttribute("class", "villa");
+        villa.appendChild(villutext);
+        villudiv.appendChild(villa);
+    };
     request.send();
 
     /*

@@ -35,6 +35,13 @@ main {
   padding-bottom:1.25em;
 }
 
+.villudiv {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .videos {
   width:31%;
   height:80%;
