@@ -1,0 +1,59 @@
+.head {
+  padding-bottom: 20px;
+  margin: 0 auto;
+}
+
+.video{
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 100%;
+}
+
+.vidbtn{
+  background-color: rgba(0, 0, 0, 0);
+  color: inherit;
+  position: absolute;
+  z-index: 4;
+  padding: 0;
+  margin: 0 auto;
+  width: 10%;
+}
+
+
+.cover {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+
+/*  height: 100%;*/
+/*  min-height: 662.86px;
+  max-height: 662.86px;*/
+}
+
+.mynd {
+  width: 100%;
+  max-width: 1160px;
+  min-width: 1160px;
+  min-height: 662.86px;
+  object-fit: cover;
+  z-index: 3;
+}
+
+.sectionvid {
+  width: 1200px;
+  height: 662.86px;
+  display: flex;
+}
+
+.divvid {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 1;
+  width: 1160px;
+  max-width: 1160px;
+  min-width: 1160px;
+  max-height: 662.86px;
+}

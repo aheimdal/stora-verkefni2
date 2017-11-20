@@ -1,9 +1,16 @@
-img{
-  width: auto;
-  height: auto;
-  position: relative;
+.videos {
+  width:31%;
+  height:80%;
+  margin-right:0.375em;
+  margin-left: 0.875em;
+  margin-bottom:1.25em;
+  margin-top:1.25em;
 }
 
-.block-Timer{
- margin-left: auto;
+
+.image {
+  width:100%;
+  max-width:100%;
+  position:relative;
+  z-index:2;
 }

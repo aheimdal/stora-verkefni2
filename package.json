@@ -9,6 +9,7 @@
     "dev": "npm-run-all --parallel sass browser-sync",
     "sass": "node-sass styles.scss styles.css -w",
     "lint": "stylelint styles.scss --syntax scss",
+    "eslint": "eslint *.js",
     "babel": "babel script.js --watch --out-file script-compiled.js --source-maps"
   },
   "repository": {
@@ -23,11 +24,15 @@
   "homepage": "https://github.com/aheimdal/stora-verkefni2#readme",
   "dependencies": {
     "babel-eslint": "^8.0.2",
-    "node-sass": "^4.6.1"
+    "node-sass": "^4.6.1",
+    "stylelint-config-primer": "^2.2.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.7.0",
     "npm-run-all": "^4.1.2",
     "stylelint": "^8.2.0"
   }

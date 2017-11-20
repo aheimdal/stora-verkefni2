@@ -1,0 +1,25 @@
+.takkar {
+  background-color: rgba(0, 0, 0, 0);
+  color: inherit;
+  border: none;
+  padding: 0.5em;
+  width: 15%;
+  max-width: 6em;
+  }
+
+.takkar:focus {
+  outline: none;
+}
+
+.pictakki {
+  max-width: 5em;
+  width: 100%;
+}
+
+.sectbutt {
+  margin-top: 0.5em;
+  padding: 1em;
+  width: 1160px;
+  display: flex;
+  justify-content: center;
+}
