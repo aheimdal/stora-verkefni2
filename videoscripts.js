@@ -44,7 +44,7 @@ for (var i = 0; i < videoslength; i++) {
   //  clearAll();
    video(data.videos[i]);
    break;
-} else if  (aftasti != data.videos[i].id) {
+} else {
   showHeading();
   var villudiv = document.createElement("div");
   villudiv.setAttribute("class", "videoekkitil");
