@@ -64,7 +64,7 @@ button img {
     padding: 1em;
     }
 
-  .headbunny {
+  .head {
     padding-bottom: 20px;
     margin: 0 auto;
   }
@@ -145,6 +145,24 @@ button img {
     justify-content: center;
     width: 1200px;
   }
+  .videoekkitil {
+    width: 100%;
+    height: 800px;
+    align-items: center;
+  }
+
+  .villahlada {
+    text-align: center;
+  }
+  .leigan_video {
+    width: 100%;
+    padding-bottom: 2em;
+  }
+  .myndbandaleigan_video {
+    text-align: center;
+    font-weight: bold;
+  }
+
 
   @media (max-width: 1000px) {
   /*  button img {
