@@ -132,11 +132,10 @@ const program = (function() {
    * Fall sem býr til línu á milli flokka með html
    */
    function showBorder() {
-     const border = document.createElement("div");
-     border.setAttribute("class", "border");
-     document.querySelector("main").appendChild(border);
+     const bordi = document.createElement("div");
+     bordi.setAttribute("class", "bordi");
+     document.querySelector("main").appendChild(bordi);
    }
-
     /*
     * Fall sem býr til myndir af videoum með titli, aldri videos og lengd með html
     * Fallið reiknar út úr epoch tíma hve langt er síðan video var sett inn.

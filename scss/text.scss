@@ -1,71 +1,70 @@
-.heading{
-  width: 100%;
+.heading {
   display: flex;
+  width: 100%;
   justify-content: center;
 }
 
 .leigan {
-  width:100%;
+  width: 100%;
   margin-left: 1em;
 }
 
 .myndbandaleigan {
-  padding-bottom:1.25em;
+  font-family: 'Roboto', sans-serif;
+  padding-bottom: 1.25em;
 }
 
 .villudiv {
   position: absolute;
-  left: 50%;
   top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
 }
 
 .titill {
+  overflow: hidden;
+  font-size: 1.125em;
+  font-weight: bold;
   text-overflow: clip;
   white-space: nowrap;
-  overflow: hidden;
 }
 
 .duration {
-  width:3.125em;
-  height:1.25em;
-  position:absolute;
-  z-index:3;
+  position: absolute;
+  right: 0.3125em;
+  bottom: 6.875em;
+  z-index: 3;
+  width: 3.125em;
+  height: 1.25em;
+  color: inherit;
   text-align: center;
-  background: rgba(0, 0, 0, 0.5);
-  right:0.3125em;
-  bottom:6.875em;
+  background: rgba(0, 0, 0, 0);
 }
 
-.titill {
-  font-weight:bold;
-  font-size:1.125em;
-}
 .lidinn {
-  padding-bottom:3.125em;
-  padding-top:0.3125em;
+  padding-top: 0.3125em;
+  padding-bottom: 3.125em;
 }
 
 .flokkar {
-  z-index:1;
-  position:relative;
+  position: relative;
+  z-index: 1;
 }
 
-
-
 .categories {
-  width:1200px;
+  width: 100%;
   margin-left: 1em;
 }
 
 .categoriestitill {
-  padding-bottom:0px;
+  font-family: 'Roboto', sans-serif;
+  padding-bottom: 0;
 }
 
-.border {
-  width:75%;
-  margin:0 auto;
-  border-top:solid #eee;
-  padding-bottom:1.25em;
-  padding-top:1.875em;
+.bordi {
+  width: 75%;
+  padding-top: 1.875em;
+  padding-bottom: 1.25em;
+  margin: 0 auto;
+  border-top: solid #eee;
 }

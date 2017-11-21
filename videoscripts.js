@@ -10,6 +10,7 @@ function allt() {
   //  var gildi = JSON.parse(sessionStorage.gildi);
   console.log("Myndin er númer: "+id);
 
+<<<<<<< HEAD
   //var oldlocation = location;
 //  location = (location+sessionStorage.getItem('Id'));
 //  alert(location.pathname);
@@ -18,14 +19,13 @@ function allt() {
 
 
 
+=======
+>>>>>>> 51749f7a61c488fad614568560758d0ce35a1eeb
   const request = new XMLHttpRequest();
-
   // sækir slóð með GET
   request.open('GET', API_URL+sessionStorage.getItem('Id'), true);
-
   request.onload = function() {
     let data =JSON.parse(request.response);
-
     const videoslength = data.videos.length;
     console.log(videoslength);
     console.log("data"+data);
@@ -85,7 +85,6 @@ if (!found) {
 }*/
 }
 
-
   };
 
   request.onerror = function() {
@@ -102,6 +101,7 @@ if (!found) {
   };
   request.send();
 
+<<<<<<< HEAD
   function showHeading() {
     var section1 = document.createElement("section");
     section1.setAttribute("class", "leigan_video");
@@ -115,8 +115,9 @@ if (!found) {
 
   }
 
+=======
+>>>>>>> 51749f7a61c488fad614568560758d0ce35a1eeb
   function video(data) {
-
 
   // Header
       let section1 = document.createElement("section");
@@ -168,7 +169,7 @@ divvid.appendChild(video);
 
     document.querySelector("main").appendChild(sectbutt);
     /* Rewind takki*/
-    const rwndbtn = document.createElement('button');
+    const rwndbtn = document.createElement('span');
     rwndbtn.setAttribute('class','takkar');
     const rwnd = document.createElement('img');
     rwnd.setAttribute('class','pictakki');
@@ -181,7 +182,7 @@ divvid.appendChild(video);
     });
 
     // Play takki
-    const playbtn = document.createElement('button');
+    const playbtn = document.createElement('span');
     playbtn.setAttribute('class','takkar');
     const play = document.createElement('img');
     play.setAttribute('class','pictakki');
@@ -190,7 +191,7 @@ divvid.appendChild(video);
     sectbutt.appendChild(playbtn);
 
     // play takki, overlay
-    const overbtn = document.createElement('button');
+    const overbtn = document.createElement('span');
     const over = document.createElement('img');
     over.setAttribute('class','pictakki');
     overbtn.setAttribute('class','vidbtn');
@@ -247,7 +248,7 @@ divvid.appendChild(video);
     });
 
     // Mute takki
-    let mutebtn = document.createElement('button');
+    let mutebtn = document.createElement('span');
     mutebtn.setAttribute('class','takkar');
     let mute = document.createElement('img');
     mute.setAttribute('class','pictakki');
@@ -274,7 +275,7 @@ divvid.appendChild(video);
     });
 
     // Fullscreen
-    const fullbtn = document.createElement('button');
+    const fullbtn = document.createElement('span');
     fullbtn.setAttribute('class','takkar');
     const fullscr = document.createElement('img');
     fullscr.setAttribute('class','pictakki');
@@ -294,7 +295,7 @@ divvid.appendChild(video);
     });
 
     // Rewind takki
-    const nextbtn = document.createElement('button');
+    const nextbtn = document.createElement('span');
     nextbtn.setAttribute('class','takkar');
     const next = document.createElement('img');
     next.setAttribute('class','pictakki');
