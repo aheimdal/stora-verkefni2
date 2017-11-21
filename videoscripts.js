@@ -2,53 +2,21 @@ const API_URL = '/videos.json?id=';
 
 function allt() {
 
-/*  var link = document.getElementsByTagName('href');
-  console.log("link: "+link);*/
-
   let id = sessionStorage.getItem('Id');
-  console.log("Mynd nr. : "+sessionStorage.getItem('Id'));
-  //  var gildi = JSON.parse(sessionStorage.gildi);
-  console.log("Myndin er númer: "+id);
 
-<<<<<<< HEAD
-  //var oldlocation = location;
-//  location = (location+sessionStorage.getItem('Id'));
-//  alert(location.pathname);
-//  alert(location.search);
-//  alert(location+sessionStorage.getItem('Id'));
-
-
-
-=======
->>>>>>> 51749f7a61c488fad614568560758d0ce35a1eeb
   const request = new XMLHttpRequest();
-  // sækir slóð með GET
   request.open('GET', API_URL+sessionStorage.getItem('Id'), true);
   request.onload = function() {
     let data =JSON.parse(request.response);
     const videoslength = data.videos.length;
-    console.log(videoslength);
-    console.log("data"+data);
 
-
-
-  /*  for (var i = 0; i < videoslength; i++) {
-    for (let i = 0; i < videoslength; i++) {
-
-      if (sessionStorage.getItem('Id') == data.videos[i].id) {
-        video(data.videos[i]);
-  }
-}*/
 var urlid = location.search;
 var aftasti = urlid.substr(-1);
 var found = false;
-//alert(aftasti);
 for (var i = 0; i < videoslength; i++) {
   if (aftasti == data.videos[i].id) {
-  //  clearAll();
   found = true;
-  // video(data.videos[i]);
-
+  
 }
 }
 if (!found) {
@@ -71,18 +39,6 @@ if (!found) {
 }
 
 }
-/*else {
-  showHeading();
-  var villudiv = document.createElement("div");
-  villudiv.setAttribute("class", "videoekkitil");
-  document.querySelector("main").appendChild(villudiv);
-
-  var villa = document.createElement("p");
-  var villutext = document.createTextNode("Videó er ekki til");
-  villa.setAttribute("class", "villahlada");
-  villa.appendChild(villutext);
-  villudiv.appendChild(villa);
-}*/
 }
 
   };
@@ -101,22 +57,6 @@ if (!found) {
   };
   request.send();
 
-<<<<<<< HEAD
-  function showHeading() {
-    var section1 = document.createElement("section");
-    section1.setAttribute("class", "leigan_video");
-    document.querySelector("main").appendChild(section1);
-
-    var headtext = document.createElement("h1");
-    var text = document.createTextNode("Myndbandaleigan");
-    headtext.setAttribute("class", "myndbandaleigan_video");
-    headtext.appendChild(text);
-    section1.appendChild(headtext);
-
-  }
-
-=======
->>>>>>> 51749f7a61c488fad614568560758d0ce35a1eeb
   function video(data) {
 
   // Header
@@ -145,13 +85,7 @@ video.setAttribute("class","video");
 divvid.appendChild(video);
 video.src = data.video;
 
-//document.querySelector("main").appendChild(divvid);
 divvid.appendChild(video);
-
-//var container = document.createElement("div");
-//divvid.appendChild(container);
-
-
 
   // Pic overlay
   let picover = document.createElement('div');

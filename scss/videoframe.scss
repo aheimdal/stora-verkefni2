@@ -1,6 +1,7 @@
 .head {
   padding-bottom: 20px;
   margin: 0 auto;
+  font-size: 2em;
 }
 
 .video {
@@ -29,15 +30,13 @@
 .mynd {
   z-index: 3;
   width: 100%;
-  min-width: 1160px;
-  max-width: 1160px;
   min-height: 662.86px;
   object-fit: cover;
 }
 
 .sectionvid {
-  display: flex;
-  width: 1200px;
+  display: block;
+  width: 100%;
   height: 662.86px;
 }
 
@@ -47,7 +46,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 1160px;
+  width: 100%;
   min-width: 1160px;
   max-width: 1160px;
   max-height: 662.86px;
