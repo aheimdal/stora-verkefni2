@@ -10,7 +10,8 @@
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 100%; }
+  max-width: 100%;
+  cursor: pointer;}
 
 .card {
   margin-bottom: 50px; }
@@ -39,7 +40,8 @@
   font-size: 1.125em;
   font-weight: bold;
   text-overflow: clip;
-  white-space: nowrap; }
+  white-space: nowrap;
+  cursor: pointer;}
 
 .duration {
   position: absolute;
