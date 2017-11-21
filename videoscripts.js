@@ -72,7 +72,7 @@ divvid.appendChild(video);
   pic.setAttribute("class", "mynd");
   picover.appendChild(pic);
   divvid.appendChild(picover);
-
+  var plagg = true;
 
     // takkar
     const sectbutt = document.createElement("section");
@@ -116,7 +116,10 @@ divvid.appendChild(video);
         video.play();
         playbtn.removeChild(playbtn.firstChild);
         overbtn.removeChild(overbtn.firstChild);
-        picover.removeChild(picover.firstChild);
+        if (plagg == true) {
+            picover.removeChild(picover.firstChild);
+            plagg = false;
+          }
 
         let pause = document.createElement('img');
         pause.setAttribute('class','pictakki');
@@ -145,7 +148,10 @@ divvid.appendChild(video);
         video.play();
 
         playbtn.removeChild(playbtn.firstChild);
-        picover.removeChild(picover.firstChild);
+        if (plagg == true) {
+            picover.removeChild(picover.firstChild);
+            plagg = false;
+          }
         let pause = document.createElement('img');
         pause.setAttribute('class','pictakki');
         pause.src = ('img/pause.svg')
