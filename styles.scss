@@ -1,9 +1,99 @@
-
-@import "scss/styler";
-@import "scss/card";
 @import "scss/poster";
 @import "scss/text";
 @import "scss/videoframe";
 @import "scss/takkar";
 @import "scss/footer";
-@import "scss/mediaquery";
+
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+main {
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  padding: 1.25em;
+  margin: 0 auto;
+  flex-direction: row;
+}
+
+@media (max-width: 1000px) {
+  .leigan {
+    margin-left: 1.5em;
+  }
+
+  .videos {
+    width: 47%;
+    padding-left: 7px;
+    margin-bottom: 0;
+  }
+
+  .image {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .lidinn {
+    padding-bottom: 0;
+  }
+
+  .duration {
+    bottom: 60px;
+  }
+
+  .categories {
+    margin-left: 1.5em;
+  }
+
+  .bordi {
+    padding-top: 10px;
+    margin-top: 60px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 706px) {
+  .leigan {
+    margin-left: 0;
+  }
+
+  .videos {
+    width: 100%;
+    padding-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+
+  .image {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .lidinn {
+    padding-bottom: 0;
+  }
+
+  .categories {
+    margin-left: 0;
+  }
+
+  .bordi {
+    padding-top: 10px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+  }
+}

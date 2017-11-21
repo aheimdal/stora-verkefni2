@@ -1,17 +1,16 @@
 .tilbaka {
-  padding-bottom:10px;
+  padding-bottom: 10px;
+  color: rgb(255, 255, 255);
   text-decoration: none;
-  color: rgb(255,255,255);
   background-color: rgba(0, 0, 0, 0);
 }
 
-
 .footer {
+  display: flex;
   width: 100%;
-  color: rgb(255,255,255);
-  background-color: rgba(0, 0, 0, 0);
   padding: 1em;
   font-weight: bold;
-  display: flex;
+  color: rgb(255, 255, 255);
+  background-color: rgba(0, 0, 0, 0);
   justify-content: center;
 }

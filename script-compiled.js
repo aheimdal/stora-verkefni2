@@ -1,6 +1,7 @@
 'use strict';
 
 var API_URL = '/videos.json';
+var url = '/videos.json?id=';
 
 document.addEventListener('DOMContentLoaded', function () {
   var site = document.querySelector('.videos');
@@ -12,8 +13,6 @@ document.addEventListener('DOMContentLoaded', function () {
  * Sækir gögn með Ajax í json skrá
  */
 var program = function () {
-  var container;
-
   /**
   *
   *
@@ -33,6 +32,7 @@ var program = function () {
       var data = JSON.parse(request.response);
       var videoslength = data.videos.length;
       console.log(videoslength);
+      console.log("data" + data);
       var catvideoslength1 = data.categories[0].videos.length;
       var catvideoslength2 = data.categories[1].videos.length;
       var catvideoslength3 = data.categories[2].videos.length;
@@ -47,6 +47,25 @@ var program = function () {
       console.log(catefylki3);
 
       showHeading();
+
+      /*    showcategories(data.categories[0]);
+      =======
+      /*      showcategories(data.categories[0]);
+      >>>>>>> 350c470f5439b58ac0bbef424af73fc5e273d8fb
+            for (var j = 0; j < data.categories[0].videos.length; j++) {
+              showvideos(data.videos[data.categories[0].videos[j]-1]);
+            }
+            showBorder();
+          showcategories(data.categories[1]);
+            for (var j = 0; j < data.categories[1].videos.length; j++) {
+              showvideos(data.videos[data.categories[1].videos[j]-1]);
+            }
+            showBorder();
+          showcategories(data.categories[2]);
+            for (var j = 0; j < data.categories[2].videos.length; j++) {
+              showvideos(data.videos[data.categories[2].videos[j]-1]);
+          }*/
+
       var _iteratorNormalCompletion = true;
       var _didIteratorError = false;
       var _iteratorError = undefined;
@@ -60,10 +79,10 @@ var program = function () {
           showcategories({ title: title });
 
           var _loop = function _loop(id) {
-            var video = data.videos.find(function (v) {
+            var dvideo = data.videos.find(function (v) {
               return v.id === id;
             });
-            showvideos(video);
+            showvideos(dvideo);
             //do whatever with video
           };
 
@@ -109,6 +128,18 @@ var program = function () {
         }
       }
     };
+    request.onerror = function () {
+      showHeading();
+      var villudiv = document.createElement("div");
+      villudiv.setAttribute("class", "villudiv");
+      document.querySelector("main").appendChild(villudiv);
+
+      var villa = document.createElement("p");
+      var villutext = document.createTextNode("Gat ekki hlaðið gögnum");
+      villa.setAttribute("class", "villa");
+      villa.appendChild(villutext);
+      villudiv.appendChild(villa);
+    };
     request.send();
 
     /*
@@ -149,11 +180,10 @@ var program = function () {
     * Fall sem býr til línu á milli flokka með html
     */
     function showBorder() {
-      var border = document.createElement("div");
-      border.setAttribute("class", "border");
-      document.querySelector("main").appendChild(border);
+      var bordi = document.createElement("div");
+      bordi.setAttribute("class", "bordi");
+      document.querySelector("main").appendChild(bordi);
     }
-
     /*
     * Fall sem býr til myndir af videoum með titli, aldri videos og lengd með html
     * Fallið reiknar út úr epoch tíma hve langt er síðan video var sett inn.
@@ -172,7 +202,31 @@ var program = function () {
       var img = document.createElement("IMG");
       img.src = data.poster;
       img.setAttribute("class", "image");
+      var poster = document.querySelector(".image");
+      var id = data.id;
+      console.log(id);
+
+      img.addEventListener("click", function (event) {
+        video(event, id);
+      });
       container.appendChild(img);
+
+      function video(e, id) {
+        e.preventDefault();
+        //  var poster = document.querySelector(".image");
+        //  alert("id"+id);
+        //  alert(poster);
+        //  var id = id;
+        var idnumber = id;
+        sessionStorage.setItem('Id', id);
+        //  console.log("Session: "+sessionStorage.getItem('Id'));
+        window.location.href = '/video.html?id=' + idnumber;
+        //  localStorage.name = 'Remy';
+
+        //  console.log(localStorage.name);
+
+        //    sessionStorage.gildi = JSON.stringify(gildi);
+      }
 
       // reiknar út lengd videos í mínútum og sekúndum
       // út frá gefnum tíma í sekúndum
@@ -217,9 +271,9 @@ var program = function () {
         var parum = document.createElement('p');
         parum.setAttribute("class", "lidinn");
         if (arum > 1) {
-          var parumtext = document.createTextNode("Fyrir " + parum + " árum síðan");
+          var _parumtext = document.createTextNode("Fyrir " + parum + " árum síðan");
         } else {
-          var parumtext = document.createTextNode("Fyrir " + parum + " ári síðan");
+          var _parumtext2 = document.createTextNode("Fyrir " + parum + " ári síðan");
         }
         parum.appendChild(parumtext);
         container.appendChild(parum);
@@ -256,9 +310,9 @@ var program = function () {
         var pdogum = document.createElement('p');
         pdogum.setAttribute("class", "lidinn");
         if (dogum > 1) {
-          var pdogumtext = document.createTextNode("Fyrir " + dogum + " dögum síðan");
+          var _pdogumtext = document.createTextNode("Fyrir " + dogum + " dögum síðan");
         } else {
-          var pdogumtext = document.createTextNode("Fyrir " + dogum + " dögum síðan");
+          var _pdogumtext2 = document.createTextNode("Fyrir " + dogum + " dögum síðan");
         }
         pdogum.appendChild(pdogumtext);
         container.appendChild(pdogum);
@@ -271,7 +325,7 @@ var program = function () {
         if (klst > 1) {
           var klsttext = document.createTextNode("Fyrir " + klst + " klukkustundum síðan");
         } else {
-          var klsttext = document.createTextNode("Fyrir " + klst + " klukkustund síðan");
+          var _klsttext = document.createTextNode("Fyrir " + klst + " klukkustund síðan");
         }
         pklst.appendChild(pklsttext);
         container.appendChild(pklst);
@@ -283,98 +337,5 @@ var program = function () {
     init: init
   };
 }();
-
-/*
-// video function
-
-function videobuttons() {
-// Rewind takki
-var rwndbtn = document.createElement('button');
-var rwnd = document.createElement('img');
-
-rwnd.src = ('img\\back.svg');
-rwndbtn.appendChild(rwnd);
-document.body.appendChild(rwndbtn);
-
-rwndbtn.addEventListener('click', function () {
-    video.currentTime -= 3;
-
-});
-
-// Play takki
-var playbtn = document.createElement('button');
-var play = document.createElement('img');
-play.src = ('img\\play.svg')
-playbtn.appendChild(play);
-document.body.appendChild(playbtn);
-
-playbtn.addEventListener('click', function () {
-  if (video.paused) {
-    video.play();
-    playbtn.removeChild(playbtn.firstChild);
-    var pause = document.createElement('img');
-    pause.src = ('img\\pause.svg')
-    playbtn.appendChild(pause);
-  } else {
-    video.pause();
-    playbtn.removeChild(playbtn.firstChild);
-    var play = document.createElement('img');
-    play.src = ('img\\play.svg')
-    playbtn.appendChild(play);
-  }
-});
-
-// Mute takki
-var mutebtn = document.createElement('button');
-var mute = document.createElement('img');
-mute.src = ('img\\mute.svg')
-mutebtn.appendChild(mute);
-document.body.appendChild(mutebtn);
-
-mutebtn.addEventListener('click', function () {
-  if (video.muted == false) {
-    video.muted = true;
-    mutebtn.removeChild(mutebtn.firstChild);
-    var unmute = document.createElement('img');
-    unmute.src = ('img\\unmute.svg')
-    mutebtn.appendChild(unmute);
-  } else {
-    video.muted = false;
-    mutebtn.removeChild(mutebtn.firstChild);
-    var mute = document.createElement('img');
-    mute.src = ('img\\mute.svg')
-    mutebtn.appendChild(mute);
-  }
-});
-
-// Fullscreen
-var fullbtn = document.createElement('button');
-var fullscr = document.createElement('img');
-fullscr.src = ('img\\fullscreen.svg')
-fullbtn.appendChild(fullscr);
-document.body.appendChild(fullbtn);
-
-fullbtn.addEventListener('click', function () {
-  video.requestFullScreen();
-});
-
-// Rewind takki
-var nextbtn = document.createElement('button');
-var next = document.createElement('img');
-next.src = ('img\\next.svg')
-nextbtn.appendChild(next);
-document.body.appendChild(nextbtn);
-
-nextbtn.addEventListener('click', function () {
-    video.currentTime += 3;
-});
-}
-
-function myndband() {
-var video = document.querySelector('video');
-
-videobuttons();
-}
-*/
 
 //# sourceMappingURL=script-compiled.js.map

@@ -4,13 +4,13 @@
   "description": "Hópverkefni 2 - 2017",
   "main": ".eslintrc.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "browser-sync": "browser-sync start --server --files index.html styles.css script.js",
-    "dev": "npm-run-all --parallel sass browser-sync",
-    "sass": "node-sass styles.scss styles.css -w",
-    "lint": "stylelint styles.scss --syntax scss",
-    "eslint": "eslint *.js",
-    "babel": "babel script.js --watch --out-file script-compiled.js --source-maps"
+    "eslint": "eslint script.js",
+    "stylelint": "stylelint *.scss scss/*.scss --syntax scss",
+    "lint": "npm-run-all --parallel eslint stylelint",
+    "babel": "babel script.js --watch --out-file script-compiled.js --source-maps",
+    "browser-sync": "browser-sync start --server --files index.html styles.css script-compiled.js",
+    "sass": "node-sass --source-map-embed --watch styles.scss styles.css",
+    "dev": "npm-run-all --parallel sass babel browser-sync"
   },
   "repository": {
     "type": "git",
