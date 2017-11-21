@@ -2,11 +2,20 @@ var API_URL = '/videos.json?id=';
 
 function allt() {
 
+/*  var link = document.getElementsByTagName('href');
+  console.log("link: "+link);*/
 
   var id = sessionStorage.getItem('Id');
   console.log("Mynd nr. : "+sessionStorage.getItem('Id'));
   //  var gildi = JSON.parse(sessionStorage.gildi);
   console.log("Myndin er númer: "+id);
+
+  //var oldlocation = location;
+//  location = (location+sessionStorage.getItem('Id'));
+//  alert(location.pathname);
+//  alert(location.search);
+//  alert(location+sessionStorage.getItem('Id'));
+
 
 
   var request = new XMLHttpRequest();
@@ -21,17 +30,63 @@ function allt() {
     console.log(videoslength);
     console.log("data"+data);
 
-    for (var i = 0; i < videoslength; i++) {
+
+  /*  for (var i = 0; i < videoslength; i++) {
       if (sessionStorage.getItem('Id') == data.videos[i].id) {
         video(data.videos[i]);
   }
+}*/
+var urlid = location.search;
+var aftasti = urlid.substr(-1);
+//alert(aftasti);
+for (var i = 0; i < videoslength; i++) {
+  if (aftasti == data.videos[i].id) {
+  //  clearAll();
+   video(data.videos[i]);
+   break;
+} else if  (aftasti != data.videos[i].id) {
+  showHeading();
+  var villudiv = document.createElement("div");
+  villudiv.setAttribute("class", "videoekkitil");
+  document.querySelector("main").appendChild(villudiv);
+
+  var villa = document.createElement("p");
+  var villutext = document.createTextNode("Videó er ekki til");
+  villa.setAttribute("class", "villahlada");
+  villa.appendChild(villutext);
+  villudiv.appendChild(villa);
+}
 }
 
 
   };
+
+  request.onerror = function() {
+      showHeading();
+      var villudiv = document.createElement("div");
+      villudiv.setAttribute("class", "videoekkitil");
+      document.querySelector("main").appendChild(villudiv);
+
+      var villa = document.createElement("p");
+      var villutext = document.createTextNode("Videó er ekki til");
+      villa.setAttribute("class", "villahlada");
+      villa.appendChild(villutext);
+      villudiv.appendChild(villa);
+  };
   request.send();
 
+  function showHeading() {
+    var section1 = document.createElement("section");
+    section1.setAttribute("class", "leigan");
+    document.querySelector("main").appendChild(section1);
 
+    var headtext = document.createElement("h1");
+    var text = document.createTextNode("Myndbandaleigan");
+    headtext.setAttribute("class", "myndbandaleigan");
+    headtext.appendChild(text);
+    section1.appendChild(headtext);
+
+  }
 
   function video(data) {
 
@@ -215,22 +270,9 @@ divvid.appendChild(video);
     foottext.setAttribute("href", "index.html");
     foottext.appendChild(text);
     footer1.appendChild(foottext);
+
   }
 
   }
 
   allt();
-
-  // Til baka
-/*  var footer1 = document.createElement("section");
-  footer1.setAttribute("class", "footer");
-  footer1.setAttribute("style", "width:1200px;");
-  document.querySelector("main").appendChild(footer1);
-
-  var foottext = document.createElement("a");
-  var text = document.createTextNode("Til Baka");
-  foottext.setAttribute("class", "tilbaka");
-  foottext.setAttribute("style", "padding-bottom:10px;");
-  foottext.setAttribute("href", "index.html");
-  foottext.appendChild(text);
-  footer1.appendChild(foottext);*/

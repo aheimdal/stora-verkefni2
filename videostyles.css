@@ -1,4 +1,7 @@
-
+* {
+  margin: 0;
+  padding: 0;
+}
 
 html {
   box-sizing: border-box;
@@ -7,10 +10,16 @@ html {
   color: rgb(255,255,255);
 }
 
-
+*, *:before, *:after {
+  box-sizing: inherit;
+}
 main {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
   margin: 0 auto;
   max-width: 1200px;
+  width: 1200px;
   padding: 1.25em;
 
 }
@@ -18,7 +27,7 @@ main {
 button {
   background-color: rgba(0, 0, 0, 0);
   border: none;
-  padding: 0.5em;
+  padding: 0.8em;
 
   width: 15%;
   max-width: 6em;
@@ -88,15 +97,15 @@ button img {
 
   .mynd {
     width: 100%;
-    max-width: 1160px;
-    min-width: 1160px;
+  /*  max-width: 1160px;
+    min-width: 1160px;*/
     min-height: 662.86px;
     object-fit: cover;
     z-index: 3;
   }
 
   .sectionvid {
-    width: 1200px;
+    width: 100%;
     height: 662.86px;
     display: block;
   }
@@ -107,7 +116,7 @@ button img {
     justify-content: center;
     position: absolute;
     z-index: 1;
-    width: 1160px;
+    width: 100%;
     max-width: 1160px;
     min-width: 1160px;
     max-height: 662.86px;
@@ -135,4 +144,30 @@ button img {
     display: flex;
     justify-content: center;
     width: 1200px;
+  }
+
+  @media (max-width: 1000px) {
+  /*  button img {
+      max-width: 6em;
+      width: 100%;
+    }*/
+    .headbunny {
+      padding-bottom: 20px;
+      margin: 0 auto;
+      font-size: 30px;
+    }
+  }
+
+  @media (max-width: 706px) {
+    button img {
+      max-width: 8em;
+    }
+
+    .vidbtn{
+      width: 20%;
+    }
+
+    .tilbaka {
+    font-size: 28px;
+    }
   }

@@ -170,10 +170,10 @@ var program = (function() {
       //  alert("id"+id);
       //  alert(poster);
     //  var id = id;
-      var idnumber = id;
+      var idno = id;
       sessionStorage.setItem('Id', id);
     //  console.log("Session: "+sessionStorage.getItem('Id'));
-      window.location.href = '/video.html?id='+idnumber;
+      window.location.href = '/video.html?id='+idno;
     //  localStorage.name = 'Remy';
 
     //  console.log(localStorage.name);
