@@ -115,7 +115,7 @@ function allt() {
     document.querySelector("main").appendChild(sectbutt);
 
     /* Rewind takki */
-    const rwndbtn = document.createElement('button');
+    const rwndbtn = document.createElement('span');
     rwndbtn.setAttribute('class','takkar');
     const rwnd = document.createElement('img');
     rwnd.setAttribute('class','pictakki');
@@ -127,7 +127,7 @@ function allt() {
     });
 
     /* Play takki */
-    const playbtn = document.createElement('button');
+    const playbtn = document.createElement('span');
     playbtn.setAttribute('class','takkar');
     const play = document.createElement('img');
     play.setAttribute('class','pictakki');
@@ -136,7 +136,7 @@ function allt() {
     sectbutt.appendChild(playbtn);
 
     /* play takki, overlay */
-    const overbtn = document.createElement('button');
+    const overbtn = document.createElement('span');
     const over = document.createElement('img');
     over.setAttribute('class','pictakki');
     overbtn.setAttribute('class','vidbtn');
@@ -191,7 +191,7 @@ function allt() {
     });
 
     /* Mute takki */
-    let mutebtn = document.createElement('button');
+    let mutebtn = document.createElement('span');
     mutebtn.setAttribute('class','takkar');
     let mute = document.createElement('img');
     mute.setAttribute('class','pictakki');
@@ -218,7 +218,7 @@ function allt() {
 });
 
     /* Fullscreen */
-    const fullbtn = document.createElement('button');
+    const fullbtn = document.createElement('span');
     fullbtn.setAttribute('class','takkar');
     const fullscr = document.createElement('img');
     fullscr.setAttribute('class','pictakki');
@@ -238,7 +238,7 @@ function allt() {
   });
 
     /* Rewind takki */
-    const nextbtn = document.createElement('button');
+    const nextbtn = document.createElement('span');
     nextbtn.setAttribute('class','takkar');
     const next = document.createElement('img');
     next.setAttribute('class','pictakki');
