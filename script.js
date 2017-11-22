@@ -1,5 +1,4 @@
 const API_URL = '/videos.json';
-const url = '/videos.json?id=';
 
 document.addEventListener('DOMContentLoaded', function () {
   let site = document.querySelector('.videos');
@@ -8,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 /**
- * Sækir gögn með Ajax í json skrá
+ * Fall sem sækir gögn með Ajax í videos.json
  */
 const program = (function() {
   /**
@@ -19,7 +18,7 @@ const program = (function() {
 
     let request = new XMLHttpRequest();
 
-    // sækir slóð með GET
+    /* sækir slóð með GET */
     request.open('GET', API_URL, true);
 
     /* Fall sem keyrir við svar frá vefþjón
@@ -27,69 +26,33 @@ const program = (function() {
     * kallar á föll sem búa til html síðunnar
     */
     request.onload = function() {
-          var data =JSON.parse(request.response);
-          var videoslength = data.videos.length;
-          console.log(videoslength);
-          console.log("data"+data);
-          var catvideoslength1 = data.categories[0].videos.length;
-          var catvideoslength2 = data.categories[1].videos.length;
-          var catvideoslength3 = data.categories[2].videos.length;
-          var catefylki1 = data.categories[0].videos;
-          var catefylki2 = data.categories[1].videos;
-          var catefylki3 = data.categories[2].videos;
-          console.log(catvideoslength1);
-          console.log(catvideoslength2);
-          console.log(catvideoslength3);
-          console.log(catefylki1);
-          console.log(catefylki2);
-          console.log(catefylki3);
+      var data =JSON.parse(request.response);
+      var videoslength = data.videos.length;
 
-
-
-          showHeading();
-
-      /*    showcategories(data.categories[0]);
-=======
-    /*      showcategories(data.categories[0]);
->>>>>>> 350c470f5439b58ac0bbef424af73fc5e273d8fb
-            for (var j = 0; j < data.categories[0].videos.length; j++) {
-              showvideos(data.videos[data.categories[0].videos[j]-1]);
-            }
-
-          showBorder();
-          showcategories(data.categories[1]);
-            for (var j = 0; j < data.categories[1].videos.length; j++) {
-              showvideos(data.videos[data.categories[1].videos[j]-1]);
-            }
-
-          showBorder();
-          showcategories(data.categories[2]);
-            for (var j = 0; j < data.categories[2].videos.length; j++) {
-              showvideos(data.videos[data.categories[2].videos[j]-1]);
-          }*/
-
-          for(const {title, videos} of data.categories){
-            showcategories({title});
-            for(const id of videos){
-              const dvideo = data.videos.find(v => v.id === id);
-              showvideos(dvideo);
-              //do whatever with video
-            }
-            showBorder();
-          }
+      showHeading();
+      for(const {title, videos} of data.categories){
+        showcategories({title});
+        for(const id of videos){
+          const dvideo = data.videos.find(v => v.id === id);
+          showvideos(dvideo);
+        }
+        showBorder();
+      }
 
     };
-    request.onerror = function() {
-        showHeading();
-        const villudiv = document.createElement("div");
-        villudiv.setAttribute("class", "villudiv");
-        document.querySelector("main").appendChild(villudiv);
 
-        const villa = document.createElement("p");
-        const villutext = document.createTextNode("Gat ekki hlaðið gögnum");
-        villa.setAttribute("class", "villa");
-        villa.appendChild(villutext);
-        villudiv.appendChild(villa);
+    /* Villuskilaboð þegar gögnin hlaðast ekki inn úr json */
+    request.onerror = function() {
+      showHeading();
+      const villudiv = document.createElement("div");
+      villudiv.setAttribute("class", "villudiv");
+      document.querySelector("main").appendChild(villudiv);
+
+      const villa = document.createElement("p");
+      const villutext = document.createTextNode("Gat ekki hlaðið gögnum");
+      villa.setAttribute("class", "villa");
+      villa.appendChild(villutext);
+      villudiv.appendChild(villa);
     };
     request.send();
 
@@ -106,7 +69,6 @@ const program = (function() {
       headtext.setAttribute("class", "myndbandaleigan");
       headtext.appendChild(text);
       section1.appendChild(headtext);
-
     }
 
     /*
@@ -136,13 +98,13 @@ const program = (function() {
      bordi.setAttribute("class", "bordi");
      document.querySelector("main").appendChild(bordi);
    }
+
     /*
     * Fall sem býr til myndir af videoum með titli, aldri videos og lengd með html
     * Fallið reiknar út úr epoch tíma hve langt er síðan video var sett inn.
     * Fallið reiknar út lengd videos.
     */
     function showvideos(data) {
-
       const section = document.createElement("section");
       section.setAttribute("class", "videos");
       document.querySelector("main").appendChild(section);
@@ -165,26 +127,15 @@ const program = (function() {
 
       function video(e, id) {
         e.preventDefault();
-      //  var poster = document.querySelector(".image");
-      //  alert("id"+id);
-      //  alert(poster);
-    //  var id = id;
+        var idno = id;
 
-      var idno = id;
+        sessionStorage.setItem('Id', id);
 
-    //  let idnumber = id;
-      sessionStorage.setItem('Id', id);
-    //  console.log("Session: "+sessionStorage.getItem('Id'));
-      window.location.href = '/video.html?id='+idno;
-    //  localStorage.name = 'Remy';
+        window.location.href = '/video.html?id='+idno;
+      }
 
-    //  console.log(localStorage.name);
-
-  //    sessionStorage.gildi = JSON.stringify(gildi);
-    }
-
-      // reiknar út lengd videos í mínútum og sekúndum
-      // út frá gefnum tíma í sekúndum
+      /* reiknar út lengd videos í mínútum og sekúndum
+         út frá gefnum tíma í sekúndum */
       let dur = data.duration;
       let min = Math.floor(dur/60);
       let sec = dur%60;
@@ -206,8 +157,8 @@ const program = (function() {
       ptitill.appendChild(titill);
       container.appendChild(ptitill);
 
-      // reiknar út hve langt er liðið síðan videoið var sett inn
-      // út frá epoch timestamp
+      /* reiknar út hve langt er liðið síðan videoið var sett inn
+         út frá epoch timestamp */
       today=new Date();
       let todaysec = Math.round(today.getTime()/1000);
       let startDate = new Date(data.created); // Your timezone!
@@ -267,7 +218,7 @@ const program = (function() {
         if (dogum > 1) {
         let pdogumtext = document.createTextNode("Fyrir " + dogum +  " dögum síðan");
       } else {
-        let pdogumtext = document.createTextNode("Fyrir " + dogum +  " dögum síðan");
+        let pdogumtext = document.createTextNode("Fyrir " + dogum +  " degi síðan");
       }
         pdogum.appendChild(pdogumtext);
         container.appendChild(pdogum);

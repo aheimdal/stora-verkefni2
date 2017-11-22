@@ -1,7 +1,6 @@
 'use strict';
 
 var API_URL = '/videos.json';
-var url = '/videos.json?id=';
 
 document.addEventListener('DOMContentLoaded', function () {
   var site = document.querySelector('.videos');
@@ -10,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 /**
- * Sækir gögn með Ajax í json skrá
+ * Fall sem sækir gögn með Ajax í videos.json
  */
 var program = function () {
   /**
@@ -21,7 +20,7 @@ var program = function () {
 
     var request = new XMLHttpRequest();
 
-    // sækir slóð með GET
+    /* sækir slóð með GET */
     request.open('GET', API_URL, true);
 
     /* Fall sem keyrir við svar frá vefþjón
@@ -31,41 +30,8 @@ var program = function () {
     request.onload = function () {
       var data = JSON.parse(request.response);
       var videoslength = data.videos.length;
-      console.log(videoslength);
-      console.log("data" + data);
-      var catvideoslength1 = data.categories[0].videos.length;
-      var catvideoslength2 = data.categories[1].videos.length;
-      var catvideoslength3 = data.categories[2].videos.length;
-      var catefylki1 = data.categories[0].videos;
-      var catefylki2 = data.categories[1].videos;
-      var catefylki3 = data.categories[2].videos;
-      console.log(catvideoslength1);
-      console.log(catvideoslength2);
-      console.log(catvideoslength3);
-      console.log(catefylki1);
-      console.log(catefylki2);
-      console.log(catefylki3);
 
       showHeading();
-
-      /*    showcategories(data.categories[0]);
-      =======
-      /*      showcategories(data.categories[0]);
-      >>>>>>> 350c470f5439b58ac0bbef424af73fc5e273d8fb
-            for (var j = 0; j < data.categories[0].videos.length; j++) {
-              showvideos(data.videos[data.categories[0].videos[j]-1]);
-            }
-            showBorder();
-          showcategories(data.categories[1]);
-            for (var j = 0; j < data.categories[1].videos.length; j++) {
-              showvideos(data.videos[data.categories[1].videos[j]-1]);
-            }
-            showBorder();
-          showcategories(data.categories[2]);
-            for (var j = 0; j < data.categories[2].videos.length; j++) {
-              showvideos(data.videos[data.categories[2].videos[j]-1]);
-          }*/
-
       var _iteratorNormalCompletion = true;
       var _didIteratorError = false;
       var _iteratorError = undefined;
@@ -83,7 +49,6 @@ var program = function () {
               return v.id === id;
             });
             showvideos(dvideo);
-            //do whatever with video
           };
 
           var _iteratorNormalCompletion2 = true;
@@ -128,6 +93,8 @@ var program = function () {
         }
       }
     };
+
+    /* Villuskilaboð þegar gögnin hlaðast ekki inn úr json */
     request.onerror = function () {
       showHeading();
       var villudiv = document.createElement("div");
@@ -184,13 +151,13 @@ var program = function () {
       bordi.setAttribute("class", "bordi");
       document.querySelector("main").appendChild(bordi);
     }
+
     /*
     * Fall sem býr til myndir af videoum með titli, aldri videos og lengd með html
     * Fallið reiknar út úr epoch tíma hve langt er síðan video var sett inn.
     * Fallið reiknar út lengd videos.
     */
     function showvideos(data) {
-
       var section = document.createElement("section");
       section.setAttribute("class", "videos");
       document.querySelector("main").appendChild(section);
@@ -213,26 +180,15 @@ var program = function () {
 
       function video(e, id) {
         e.preventDefault();
-        //  var poster = document.querySelector(".image");
-        //  alert("id"+id);
-        //  alert(poster);
-        //  var id = id;
-
         var idno = id;
 
-        //  let idnumber = id;
         sessionStorage.setItem('Id', id);
-        //  console.log("Session: "+sessionStorage.getItem('Id'));
+
         window.location.href = '/video.html?id=' + idno;
-        //  localStorage.name = 'Remy';
-
-        //  console.log(localStorage.name);
-
-        //    sessionStorage.gildi = JSON.stringify(gildi);
       }
 
-      // reiknar út lengd videos í mínútum og sekúndum
-      // út frá gefnum tíma í sekúndum
+      /* reiknar út lengd videos í mínútum og sekúndum
+         út frá gefnum tíma í sekúndum */
       var dur = data.duration;
       var min = Math.floor(dur / 60);
       var sec = dur % 60;
@@ -254,8 +210,8 @@ var program = function () {
       ptitill.appendChild(titill);
       container.appendChild(ptitill);
 
-      // reiknar út hve langt er liðið síðan videoið var sett inn
-      // út frá epoch timestamp
+      /* reiknar út hve langt er liðið síðan videoið var sett inn
+         út frá epoch timestamp */
       today = new Date();
       var todaysec = Math.round(today.getTime() / 1000);
       var startDate = new Date(data.created); // Your timezone!
@@ -315,7 +271,7 @@ var program = function () {
         if (dogum > 1) {
           var _pdogumtext = document.createTextNode("Fyrir " + dogum + " dögum síðan");
         } else {
-          var _pdogumtext2 = document.createTextNode("Fyrir " + dogum + " dögum síðan");
+          var _pdogumtext2 = document.createTextNode("Fyrir " + dogum + " degi síðan");
         }
         pdogum.appendChild(pdogumtext);
         container.appendChild(pdogum);
