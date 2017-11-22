@@ -1,5 +1,5 @@
 .head {
-  padding-bottom: 20px;
+  padding-bottom: 0.75em;
   margin: 0 auto;
   font-size: 2em;
 }
@@ -30,14 +30,15 @@
 .mynd {
   z-index: 3;
   width: 100%;
-  min-height: 662.86px;
+  min-height: 41.375em;
   object-fit: cover;
 }
 
 .sectionvid {
   display: block;
   width: 100%;
-  height: 662.86px;
+  height: 41.375em;
+  margin-left: 1.25em
 }
 
 .divvid {
@@ -47,7 +48,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-width: 1160px;
-  max-width: 1160px;
-  max-height: 662.86px;
+  min-width: 72.5em;
+  max-width: 72.5em;
+  max-height: 41.375em;
 }

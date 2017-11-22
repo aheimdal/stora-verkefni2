@@ -33,7 +33,7 @@ main {
 
   .videos {
     width: 47%;
-    padding-left: 7px;
+    padding-left: 0.4375em;
     margin-bottom: 0;
   }
 
@@ -47,7 +47,7 @@ main {
   }
 
   .duration {
-    bottom: 60px;
+    bottom: 3.75em;
   }
 
   .categories {
@@ -56,9 +56,13 @@ main {
   }
 
   .bordi {
-    padding-top: 10px;
-    margin-top: 60px;
-    margin-bottom: 20px;
+    padding-top: 0.625em;
+    margin-top: 3.75em;
+    margin-bottom: 1.25em;
+  }
+
+  .head {
+    padding-bottom: 0.5em;
   }
 }
 
@@ -70,12 +74,13 @@ main {
 
   .myndbandaleigan {
     padding-bottom: 0.5em;
+    margin-left: 0.2em;
   }
 
   .videos {
     width: 100%;
-    padding-left: 0;
-    margin-right: 0;
+    padding-left: 1em;
+    margin-right: 1em;
     margin-bottom: 0;
     margin-left: 0;
   }
@@ -83,7 +88,7 @@ main {
   .duration {
     right: 0.3125em;
     bottom: 6em;
-    font-size: 1.75em;
+    font-size: 2em;
   }
 
   .image {
@@ -92,28 +97,51 @@ main {
   }
 
   .categories {
-    margin-left: 0;
+    margin-left: 0.3em;
     font-size: 3em;
   }
 
   .bordi {
-    padding-top: 10px;
-    margin-top: 56px;
-    margin-bottom: 32px;
+    padding-top: 0.625em;
+    margin-top: 3.5em;
+    margin-bottom: 2em;
   }
 
   .lidinn {
-    padding-top: 0;
+    padding-top: 0.3em;
     padding-bottom: 1em;
-    font-size: 1.75em;
+    font-size: 2em;
+    font-weight: bold;
   }
 
   .titill {
-    padding-top: 0.5em;
+    padding-top: 0.2em;
     overflow: hidden;
-    font-size: 2.5em;
+    font-size: 3em;
     font-weight: bold;
     text-overflow: clip;
     white-space: nowrap;
   }
+
+  .tilbaka {
+    font-size: 1.5em;
+    margin-top: 1em;
+  }
+
+  .head {
+    padding-bottom: 1em;
+  }
+}
+
+@media (max-width: 500px) {
+  .tilbaka {
+    font-size: 2em;
+  }
+
+  .head {
+    padding-bottom: 1em;
+    padding-top: 0.5em;
+    font-size: 2.5em;
+  }
+
 }

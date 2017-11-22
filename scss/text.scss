@@ -1,8 +1,13 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0; }
+
 .heading {
   display: block;
   display: flex;
-  width: 1160px;
-  max-width: 1160px;
+  width: 72.5em;
+  max-width: 72.5em;
   justify-content: center;
   align-items: center;
   padding: 1em;
@@ -41,9 +46,8 @@
   z-index: 3;
   width: 3.125em;
   height: 1.25em;
-  color: inherit;
   text-align: center;
-  background: rgba(0, 0, 0, 0);
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .lidinn {
@@ -57,7 +61,7 @@
 }
 
 .categories {
-  width: 1200px;
+  width: 75em;
   margin-left: 1em;
 }
 
@@ -75,7 +79,7 @@
 
 .videoekkitil {
   width: 100%;
-  height: 800px;
+  height: 50em;
   align-items: center;
 }
 
