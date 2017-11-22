@@ -124,12 +124,16 @@ main {
   }
 
   .tilbaka {
-    font-size: 1.5em;
     margin-top: 1em;
+    font-size: 1.5em;
   }
 
   .head {
     padding-bottom: 1em;
+  }
+
+  .villahlada {
+    font-size: 1.5em;
   }
 }
 
@@ -139,9 +143,25 @@ main {
   }
 
   .head {
-    padding-bottom: 1em;
     padding-top: 0.5em;
+    padding-bottom: 1em;
     font-size: 2.5em;
+  }
+
+  .myndbandaleigan_video {
+    font-size: 2.5em;
+  }
+
+  .villahlada {
+    font-size: 2em;
+  }
+
+  .takkar {
+
+  }
+
+  .vidbtn {
+    
   }
 
 }

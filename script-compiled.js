@@ -12,10 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
  * Fall sem sækir gögn með Ajax í videos.json
  */
 var program = function () {
-  /**
-  *
-  *
-  */
+
   function init(site) {
 
     var request = new XMLHttpRequest();
@@ -97,13 +94,13 @@ var program = function () {
     /* Villuskilaboð þegar gögnin hlaðast ekki inn úr json */
     request.onerror = function () {
       showHeading();
-      var villudiv = document.createElement("div");
-      villudiv.setAttribute("class", "villudiv");
-      document.querySelector("main").appendChild(villudiv);
+      var villudiv = document.createElement('div');
+      villudiv.setAttribute('class', 'villudiv');
+      document.querySelector('main').appendChild(villudiv);
 
-      var villa = document.createElement("p");
-      var villutext = document.createTextNode("Gat ekki hlaðið gögnum");
-      villa.setAttribute("class", "villa");
+      var villa = document.createElement('p');
+      var villutext = document.createTextNode('Gat ekki hlaðið gögnum');
+      villa.setAttribute('class', 'villa');
       villa.appendChild(villutext);
       villudiv.appendChild(villa);
     };
@@ -113,13 +110,13 @@ var program = function () {
     * Fall sem býr til aðalfyrirsögn með html
     */
     function showHeading() {
-      var section1 = document.createElement("section");
-      section1.setAttribute("class", "leigan");
-      document.querySelector("main").appendChild(section1);
+      var section1 = document.createElement('section');
+      section1.setAttribute('class', 'leigan');
+      document.querySelector('main').appendChild(section1);
 
-      var headtext = document.createElement("h1");
-      var text = document.createTextNode("Myndbandaleigan");
-      headtext.setAttribute("class", "myndbandaleigan");
+      var headtext = document.createElement('h1');
+      var text = document.createTextNode('Myndbandaleigan');
+      headtext.setAttribute('class', 'myndbandaleigan');
       headtext.appendChild(text);
       section1.appendChild(headtext);
     }
@@ -128,16 +125,16 @@ var program = function () {
     * Fall sem býr til fyrirsagnir flokka með html
     */
     function showcategories(data) {
-      var section1 = document.createElement("section");
-      section1.setAttribute("class", "categories");
-      document.querySelector("main").appendChild(section1);
+      var section1 = document.createElement('section');
+      section1.setAttribute('class', 'categories');
+      document.querySelector('main').appendChild(section1);
 
-      var container = document.createElement("div");
-      container.setAttribute("class", "categor");
+      var container = document.createElement('div');
+      container.setAttribute('class', 'categor');
       section1.appendChild(container);
 
       var cattitill = document.createElement('h2');
-      cattitill.setAttribute("class", "categoriestitill");
+      cattitill.setAttribute('class', 'categoriestitill');
       var titill = document.createTextNode(data.title);
       cattitill.appendChild(titill);
       container.appendChild(cattitill);
@@ -147,9 +144,9 @@ var program = function () {
     * Fall sem býr til línu á milli flokka með html
     */
     function showBorder() {
-      var bordi = document.createElement("div");
-      bordi.setAttribute("class", "bordi");
-      document.querySelector("main").appendChild(bordi);
+      var bordi = document.createElement('div');
+      bordi.setAttribute('class', 'bordi');
+      document.querySelector('main').appendChild(bordi);
     }
 
     /*
@@ -158,22 +155,21 @@ var program = function () {
     * Fallið reiknar út lengd videos.
     */
     function showvideos(data) {
-      var section = document.createElement("section");
-      section.setAttribute("class", "videos");
-      document.querySelector("main").appendChild(section);
+      var section = document.createElement('section');
+      section.setAttribute('class', 'videos');
+      document.querySelector('main').appendChild(section);
 
-      var container = document.createElement("div");
-      container.setAttribute("class", "flokkar");
+      var container = document.createElement('div');
+      container.setAttribute('class', 'flokkar');
       section.appendChild(container);
 
-      var img = document.createElement("IMG");
+      var img = document.createElement('IMG');
       img.src = data.poster;
-      img.setAttribute("class", "image");
-      var poster = document.querySelector(".image");
+      img.setAttribute('class', 'image');
+      var poster = document.querySelector('.image');
       var id = data.id;
-      console.log(id);
 
-      img.addEventListener("click", function (event) {
+      img.addEventListener('click', function (event) {
         video(event, id);
       });
       container.appendChild(img);
@@ -194,19 +190,19 @@ var program = function () {
       var sec = dur % 60;
       var duration = document.createElement('div');
       if (sec < 10) {
-        sec = "0" + sec;
+        sec = '0' + sec;
       }
       if (min < 10) {
-        min = "0" + min;
+        min = '0' + min;
       }
-      var durtext = document.createTextNode(min + ":" + sec);
-      duration.setAttribute("class", "duration");
+      var durtext = document.createTextNode(min + ':' + sec);
+      duration.setAttribute('class', 'duration');
       duration.appendChild(durtext);
       container.appendChild(duration);
 
       var ptitill = document.createElement('p');
       var titill = document.createTextNode(data.title);
-      ptitill.setAttribute("class", "titill");
+      ptitill.setAttribute('class', 'titill');
       ptitill.appendChild(titill);
       container.appendChild(ptitill);
 
@@ -228,11 +224,11 @@ var program = function () {
       if (year < mismunur) {
         var arum = Math.floor(mismunur / year);
         var parum = document.createElement('p');
-        parum.setAttribute("class", "lidinn");
+        parum.setAttribute('class', 'lidinn');
         if (arum > 1) {
-          var _parumtext = document.createTextNode("Fyrir " + parum + " árum síðan");
+          var _parumtext = document.createTextNode('Fyrir ' + parum + ' árum síðan');
         } else {
-          var _parumtext2 = document.createTextNode("Fyrir " + parum + " ári síðan");
+          var _parumtext2 = document.createTextNode('Fyrir ' + parum + ' ári síðan');
         }
         parum.appendChild(parumtext);
         container.appendChild(parum);
@@ -241,11 +237,11 @@ var program = function () {
       } else if (month < mismunur) {
         var manudum = Math.floor(mismunur / month);
         var pmanudum = document.createElement('p');
-        pmanudum.setAttribute("class", "lidinn");
+        pmanudum.setAttribute('class', 'lidinn');
         if (manudum > 1) {
-          var pmanudumtext = document.createTextNode("Fyrir " + manudum + " mánuðum síðan");
+          var pmanudumtext = document.createTextNode('Fyrir ' + manudum + ' mánuðum síðan');
         } else {
-          var pmanudumtext = document.createTextNode("Fyrir " + manudum + " mánuði síðan");
+          var pmanudumtext = document.createTextNode('Fyrir ' + manudum + ' mánuði síðan');
         }
         pmanudum.appendChild(pmanudumtext);
         container.appendChild(pmanudum);
@@ -254,11 +250,11 @@ var program = function () {
       } else if (week < mismunur) {
         var vikum = Math.floor(mismunur / week);
         var pvikum = document.createElement('p');
-        pvikum.setAttribute("class", "lidinn");
+        pvikum.setAttribute('class', 'lidinn');
         if (vikum > 1) {
-          var pvikumtext = document.createTextNode("Fyrir " + vikum + " vikum síðan");
+          var pvikumtext = document.createTextNode('Fyrir ' + vikum + ' vikum síðan');
         } else {
-          var pvikumtext = document.createTextNode("Fyrir " + vikum + " viku síðan");
+          var pvikumtext = document.createTextNode('Fyrir ' + vikum + ' viku síðan');
         }
         pvikum.appendChild(pvikumtext);
         container.appendChild(pvikum);
@@ -267,11 +263,11 @@ var program = function () {
       } else if (day < mismunur) {
         var dogum = Math.floor(mismunur / day);
         var pdogum = document.createElement('p');
-        pdogum.setAttribute("class", "lidinn");
+        pdogum.setAttribute('class', 'lidinn');
         if (dogum > 1) {
-          var _pdogumtext = document.createTextNode("Fyrir " + dogum + " dögum síðan");
+          var _pdogumtext = document.createTextNode('Fyrir ' + dogum + ' dögum síðan');
         } else {
-          var _pdogumtext2 = document.createTextNode("Fyrir " + dogum + " degi síðan");
+          var _pdogumtext2 = document.createTextNode('Fyrir ' + dogum + ' degi síðan');
         }
         pdogum.appendChild(pdogumtext);
         container.appendChild(pdogum);
@@ -280,11 +276,11 @@ var program = function () {
       } else {
         var klst = Math.floor(mismunur / hour);
         var pklst = document.createElement('p');
-        pklst.setAttribute("class", "lidinn");
+        pklst.setAttribute('class', 'lidinn');
         if (klst > 1) {
-          var klsttext = document.createTextNode("Fyrir " + klst + " klukkustundum síðan");
+          var klsttext = document.createTextNode('Fyrir ' + klst + ' klukkustundum síðan');
         } else {
-          var _klsttext = document.createTextNode("Fyrir " + klst + " klukkustund síðan");
+          var _klsttext = document.createTextNode('Fyrir ' + klst + ' klukkustund síðan');
         }
         pklst.appendChild(pklsttext);
         container.appendChild(pklst);

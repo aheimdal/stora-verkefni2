@@ -1,7 +1,7 @@
 const API_URL = '/videos.json';
 
 document.addEventListener('DOMContentLoaded', function () {
-  let site = document.querySelector('.videos');
+  const site = document.querySelector('.videos');
 
   program.init(site);
 });
@@ -9,14 +9,11 @@ document.addEventListener('DOMContentLoaded', function () {
 /**
  * Fall sem sækir gögn með Ajax í videos.json
  */
-const program = (function() {
-  /**
-	 *
-	 *
-	*/
+const program = (function () {
+
   function init(site) {
 
-    let request = new XMLHttpRequest();
+    const request = new XMLHttpRequest();
 
     /* sækir slóð með GET */
     request.open('GET', API_URL, true);
@@ -26,8 +23,8 @@ const program = (function() {
     * kallar á föll sem búa til html síðunnar
     */
     request.onload = function() {
-      var data =JSON.parse(request.response);
-      var videoslength = data.videos.length;
+      let data =JSON.parse(request.response);
+      let videoslength = data.videos.length;
 
       showHeading();
       for(const {title, videos} of data.categories){
@@ -44,13 +41,13 @@ const program = (function() {
     /* Villuskilaboð þegar gögnin hlaðast ekki inn úr json */
     request.onerror = function() {
       showHeading();
-      const villudiv = document.createElement("div");
-      villudiv.setAttribute("class", "villudiv");
-      document.querySelector("main").appendChild(villudiv);
+      const villudiv = document.createElement('div');
+      villudiv.setAttribute('class', 'villudiv');
+      document.querySelector('main').appendChild(villudiv);
 
-      const villa = document.createElement("p");
-      const villutext = document.createTextNode("Gat ekki hlaðið gögnum");
-      villa.setAttribute("class", "villa");
+      const villa = document.createElement('p');
+      const villutext = document.createTextNode('Gat ekki hlaðið gögnum');
+      villa.setAttribute('class', 'villa');
       villa.appendChild(villutext);
       villudiv.appendChild(villa);
     };
@@ -60,13 +57,13 @@ const program = (function() {
     * Fall sem býr til aðalfyrirsögn með html
     */
     function showHeading() {
-      let section1 = document.createElement("section");
-      section1.setAttribute("class", "leigan");
-      document.querySelector("main").appendChild(section1);
+      let section1 = document.createElement('section');
+      section1.setAttribute('class', 'leigan');
+      document.querySelector('main').appendChild(section1);
 
-      const headtext = document.createElement("h1");
-      const text = document.createTextNode("Myndbandaleigan");
-      headtext.setAttribute("class", "myndbandaleigan");
+      const headtext = document.createElement('h1');
+      const text = document.createTextNode('Myndbandaleigan');
+      headtext.setAttribute('class', 'myndbandaleigan');
       headtext.appendChild(text);
       section1.appendChild(headtext);
     }
@@ -75,16 +72,16 @@ const program = (function() {
     * Fall sem býr til fyrirsagnir flokka með html
     */
     function showcategories(data) {
-      let section1 = document.createElement("section");
-      section1.setAttribute("class", "categories");
-      document.querySelector("main").appendChild(section1);
+      let section1 = document.createElement('section');
+      section1.setAttribute('class', 'categories');
+      document.querySelector('main').appendChild(section1);
 
-      let container = document.createElement("div");
-      container.setAttribute("class", "categor");
+      let container = document.createElement('div');
+      container.setAttribute('class', 'categor');
       section1.appendChild(container);
 
       const cattitill = document.createElement('h2');
-      cattitill.setAttribute("class", "categoriestitill");
+      cattitill.setAttribute('class', 'categoriestitill');
       const titill = document.createTextNode(data.title);
       cattitill.appendChild(titill);
       container.appendChild(cattitill);
@@ -94,9 +91,9 @@ const program = (function() {
    * Fall sem býr til línu á milli flokka með html
    */
    function showBorder() {
-     const bordi = document.createElement("div");
-     bordi.setAttribute("class", "bordi");
-     document.querySelector("main").appendChild(bordi);
+     const bordi = document.createElement('div');
+     bordi.setAttribute('class', 'bordi');
+     document.querySelector('main').appendChild(bordi);
    }
 
     /*
@@ -105,94 +102,93 @@ const program = (function() {
     * Fallið reiknar út lengd videos.
     */
     function showvideos(data) {
-      const section = document.createElement("section");
-      section.setAttribute("class", "videos");
-      document.querySelector("main").appendChild(section);
+      const section = document.createElement('section');
+      section.setAttribute('class', 'videos');
+      document.querySelector('main').appendChild(section);
 
-      const container = document.createElement("div");
-      container.setAttribute("class", "flokkar");
+      const container = document.createElement('div');
+      container.setAttribute('class', 'flokkar');
       section.appendChild(container);
 
-      let img = document.createElement("IMG");
+      const img = document.createElement('IMG');
       img.src = data.poster;
-      img.setAttribute("class", "image");
-      let poster = document.querySelector(".image");
+      img.setAttribute('class', 'image');
+      const poster = document.querySelector('.image');
       let id = data.id;
-      console.log(id);
 
-      img.addEventListener("click", function(event) {
+      img.addEventListener('click', function (event) {
         video(event, id);
       });
       container.appendChild(img);
 
       function video(e, id) {
         e.preventDefault();
-        var idno = id;
+        const idno = id;
 
         sessionStorage.setItem('Id', id);
 
-        window.location.href = '/video.html?id='+idno;
+        window.location.href = '/video.html?id=' + idno;
       }
 
       /* reiknar út lengd videos í mínútum og sekúndum
          út frá gefnum tíma í sekúndum */
-      let dur = data.duration;
-      let min = Math.floor(dur/60);
-      let sec = dur%60;
-      let duration = document.createElement('div');
+      const dur = data.duration;
+      let min = Math.floor(dur / 60);
+      let sec = dur % 60;
+      const duration = document.createElement('div');
       if (sec < 10) {
-        sec = "0"+sec;
+        sec = '0' + sec;
       }
       if (min < 10) {
-        min = "0"+min;
+        min = '0' + min;
       }
-      const durtext = document.createTextNode(min+":"+sec);
-      duration.setAttribute("class", "duration");
+      const durtext = document.createTextNode(min + ':' + sec);
+      duration.setAttribute('class', 'duration');
       duration.appendChild(durtext);
       container.appendChild(duration);
 
       const ptitill = document.createElement('p');
       const titill = document.createTextNode(data.title);
-      ptitill.setAttribute("class", "titill");
+      ptitill.setAttribute('class', 'titill');
       ptitill.appendChild(titill);
       container.appendChild(ptitill);
 
       /* reiknar út hve langt er liðið síðan videoið var sett inn
          út frá epoch timestamp */
-      today=new Date();
-      let todaysec = Math.round(today.getTime()/1000);
-      let startDate = new Date(data.created); // Your timezone!
-      let seconds = Math.round(startDate.getTime()/1000);
-      let mismunur = Math.floor(todaysec-seconds);
+      today= new Date();
+      const todaysec = Math.round(today.getTime() / 1000);
+      const startDate = new Date(data.created); // Your timezone!
+      const seconds = Math.round(startDate.getTime() / 1000);
+      const mismunur = Math.floor(todaysec-seconds);
 
-      let year = 31536000;
-      let month = 2592000;
-      let week = 604800;
-      let day = 60*60*24;
-      let hour = 3600;
+      const year = 31536000;
+      const month = 2592000;
+      const week = 604800;
+      const day = 60 * 60 * 24;
+      const hour = 3600;
 
       // ár
       if (year < mismunur) {
-        let arum = Math.floor(mismunur/year);
-        let parum = document.createElement('p');
-        parum.setAttribute("class", "lidinn");
+        const arum = Math.floor(mismunur/year);
+        const parum = document.createElement('p');
+        parum.setAttribute('class', 'lidinn');
         if (arum > 1) {
-        let parumtext = document.createTextNode("Fyrir " + parum +  " árum síðan");
+        let parumtext = document.createTextNode('Fyrir ' + parum +  ' árum síðan');
       } else {
-          let parumtext = document.createTextNode("Fyrir " + parum +  " ári síðan");
+          let parumtext = document.createTextNode('Fyrir ' + parum +  ' ári síðan');
       }
         parum.appendChild(parumtext);
         container.appendChild(parum);
 
       // mánuðir
       } else if (month < mismunur) {
-        let manudum = Math.floor(mismunur/month);
-        let pmanudum = document.createElement('p');
-        pmanudum.setAttribute("class", "lidinn");
+        const manudum = Math.floor(mismunur/month);
+        const pmanudum = document.createElement('p');
+        pmanudum.setAttribute('class', 'lidinn');
         if (manudum > 1) {
-        var pmanudumtext = document.createTextNode("Fyrir " + manudum +  " mánuðum síðan");
+        var pmanudumtext = document.createTextNode('Fyrir ' + manudum +  ' mánuðum síðan');
       } else {
-        var pmanudumtext = document.createTextNode("Fyrir " + manudum +  " mánuði síðan");
+        var pmanudumtext = document.createTextNode('Fyrir ' + manudum +  ' mánuði síðan');
       }
         pmanudum.appendChild(pmanudumtext);
         container.appendChild(pmanudum);
@@ -201,11 +197,11 @@ const program = (function() {
       } else if (week < mismunur) {
         let vikum = Math.floor(mismunur/week);
         let pvikum = document.createElement('p');
-        pvikum.setAttribute("class", "lidinn");
+        pvikum.setAttribute('class', 'lidinn');
         if (vikum > 1) {
-        var pvikumtext = document.createTextNode("Fyrir " + vikum +  " vikum síðan");
+        var pvikumtext = document.createTextNode('Fyrir ' + vikum +  ' vikum síðan');
       } else {
-        var pvikumtext = document.createTextNode("Fyrir " + vikum +  " viku síðan");
+        var pvikumtext = document.createTextNode('Fyrir ' + vikum +  ' viku síðan');
       }
         pvikum.appendChild(pvikumtext);
         container.appendChild(pvikum);
@@ -214,11 +210,11 @@ const program = (function() {
       } else if (day < mismunur) {
         let dogum =  Math.floor(mismunur/day);
         let pdogum = document.createElement('p');
-        pdogum.setAttribute("class", "lidinn");
+        pdogum.setAttribute('class', 'lidinn');
         if (dogum > 1) {
-        let pdogumtext = document.createTextNode("Fyrir " + dogum +  " dögum síðan");
+        let pdogumtext = document.createTextNode('Fyrir ' + dogum +  ' dögum síðan');
       } else {
-        let pdogumtext = document.createTextNode("Fyrir " + dogum +  " degi síðan");
+        let pdogumtext = document.createTextNode('Fyrir ' + dogum +  ' degi síðan');
       }
         pdogum.appendChild(pdogumtext);
         container.appendChild(pdogum);
@@ -227,11 +223,11 @@ const program = (function() {
       } else {
         let klst =  Math.floor(mismunur/hour);
         let pklst = document.createElement('p');
-        pklst.setAttribute("class", "lidinn");
+        pklst.setAttribute('class', 'lidinn');
         if (klst > 1) {
-        let klsttext = document.createTextNode("Fyrir " + klst +  " klukkustundum síðan");
+        let klsttext = document.createTextNode('Fyrir ' + klst +  ' klukkustundum síðan');
       } else {
-        let klsttext = document.createTextNode("Fyrir " + klst +  " klukkustund síðan");
+        let klsttext = document.createTextNode('Fyrir ' + klst +  ' klukkustund síðan');
       }
         pklst.appendChild(pklsttext);
         container.appendChild(pklst);

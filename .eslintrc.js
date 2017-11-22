@@ -5,9 +5,7 @@ module.exports = {
     browser: true,
   },
   rules: {
-    indent: ['error', 2],
-    curly: ['error', 'multi-line'],
-    'brace-style': ['error'],
-    'class-methods-use-this': 0
+    'class-methods-use-this': 0,
+    'linebreak-style': 0
   }
 };
