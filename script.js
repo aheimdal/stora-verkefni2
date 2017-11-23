@@ -49,7 +49,7 @@ function video(e, id) {
 
   sessionStorage.setItem('Id', id);
 
-  window.location.href = '/video.html?id=' + idno;
+  window.location.href = `/video.html?id=${idno}`;
 }
 /*
 * Fall sem býr til myndir af videoum með titli, aldri videos og lengd með html
@@ -84,12 +84,12 @@ function showvideos(data) {
   let sec = dur % 60;
   const duration = document.createElement('div');
   if (sec < 10) {
-    sec = '0' + sec;
+    sec = `0${sec}`;
   }
   if (min < 10) {
-    min = '0' + min;
+    min = `0${min}`;
   }
-  const durtext = document.createTextNode(min + ':' + sec);
+  const durtext = document.createTextNode(`${min}:${sec}`);
   duration.setAttribute('class', 'duration');
   duration.appendChild(durtext);
   container.appendChild(duration);
@@ -120,8 +120,8 @@ function showvideos(data) {
     const parum = document.createElement('p');
     parum.setAttribute('class', 'lidinn');
     let parumtext = 0;
-    const parumtext1 = document.createTextNode('Fyrir ' + parum + ' árum síðan');
-    const parumtext2 = document.createTextNode('Fyrir ' + parum + ' ári síðan');
+    const parumtext1 = document.createTextNode(`Fyrir ${parum} árum síðan`);
+    const parumtext2 = document.createTextNode(`Fyrir ${parum} ári síðan`);
     if (arum > 1) {
       parumtext = parumtext1;
     } else {
@@ -136,8 +136,8 @@ function showvideos(data) {
     const pmanudum = document.createElement('p');
     pmanudum.setAttribute('class', 'lidinn');
     let pmanudumtext = 0;
-    const pmanudumtext1 = document.createTextNode('Fyrir ' + manudum + ' mánuðum síðan');
-    const pmanudumtext2 = document.createTextNode('Fyrir ' + manudum + ' mánuði síðan');
+    const pmanudumtext1 = document.createTextNode(`Fyrir ${manudum} mánuðum síðan`);
+    const pmanudumtext2 = document.createTextNode(`Fyrir ${manudum} mánuði síðan`);
     if (manudum > 1) {
       pmanudumtext = pmanudumtext1;
     } else {
@@ -152,8 +152,8 @@ function showvideos(data) {
     const pvikum = document.createElement('p');
     pvikum.setAttribute('class', 'lidinn');
     let pvikumtext = 0;
-    const pvikumtext1 = document.createTextNode('Fyrir ' + vikum + ' vikum síðan');
-    const pvikumtext2 = document.createTextNode('Fyrir ' + vikum + ' viku síðan');
+    const pvikumtext1 = document.createTextNode(`Fyrir ${vikum} vikum síðan`);
+    const pvikumtext2 = document.createTextNode(`Fyrir ${vikum} viku síðan`);
     if (vikum > 1) {
       pvikumtext = pvikumtext1;
     } else {
@@ -168,8 +168,8 @@ function showvideos(data) {
     const pdogum = document.createElement('p');
     pdogum.setAttribute('class', 'lidinn');
     let pdogumtext = 0;
-    const pdogumtext1 = document.createTextNode('Fyrir ' + dogum + ' dögum síðan');
-    const pdogumtext2 = document.createTextNode('Fyrir ' + dogum + ' degi síðan');
+    const pdogumtext1 = document.createTextNode(`Fyrir ${dogum} dögum síðan`);
+    const pdogumtext2 = document.createTextNode(`Fyrir ${dogum} degi síðan`);
     if (dogum > 1) {
       pdogumtext = pdogumtext1;
     } else {
@@ -184,8 +184,8 @@ function showvideos(data) {
     const pklst = document.createElement('p');
     pklst.setAttribute('class', 'lidinn');
     let pklsttext = 0;
-    const pklsttext1 = document.createTextNode('Fyrir ' + klst + ' klukkustundum síðan');
-    const pklsttext2 = document.createTextNode('Fyrir ' + klst + ' klukkustund síðan');
+    const pklsttext1 = document.createTextNode(`Fyrir ${klst} klukkustundum síðan`);
+    const pklsttext2 = document.createTextNode(`Fyrir ${klst} klukkustund síðan`);
     if (klst > 1) {
       pklsttext = pklsttext1;
     } else {
@@ -213,6 +213,7 @@ const program = (() => {
     request.onload = () => {
       const data = JSON.parse(request.response);
 
+
       showHeading();
       for (const { title, videos } of data.categories) {
         showcategories({ title });
@@ -222,6 +223,11 @@ const program = (() => {
         }
         showBorder();
       }
+      /*
+      () => {
+      return Object.categories(categories).map(title => stuff(title)).data();
+      showcategories({ title });
+      }*/
     };
     /* Villuskilaboð þegar gögnin hlaðast ekki inn úr json */
     request.onerror = () => {

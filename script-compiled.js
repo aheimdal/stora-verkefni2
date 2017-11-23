@@ -121,8 +121,8 @@ function showvideos(data) {
     var parum = document.createElement('p');
     parum.setAttribute('class', 'lidinn');
     var parumtext = 0;
-    var parumtext1 = document.createTextNode('Fyrir ' + parum + ' árum síðan');
-    var parumtext2 = document.createTextNode('Fyrir ' + parum + ' ári síðan');
+    var parumtext1 = document.createTextNode('Fyrir ' + parum + ' \xE1rum s\xED\xF0an');
+    var parumtext2 = document.createTextNode('Fyrir ' + parum + ' \xE1ri s\xED\xF0an');
     if (arum > 1) {
       parumtext = parumtext1;
     } else {
@@ -137,8 +137,8 @@ function showvideos(data) {
     var pmanudum = document.createElement('p');
     pmanudum.setAttribute('class', 'lidinn');
     var pmanudumtext = 0;
-    var pmanudumtext1 = document.createTextNode('Fyrir ' + manudum + ' mánuðum síðan');
-    var pmanudumtext2 = document.createTextNode('Fyrir ' + manudum + ' mánuði síðan');
+    var pmanudumtext1 = document.createTextNode('Fyrir ' + manudum + ' m\xE1nu\xF0um s\xED\xF0an');
+    var pmanudumtext2 = document.createTextNode('Fyrir ' + manudum + ' m\xE1nu\xF0i s\xED\xF0an');
     if (manudum > 1) {
       pmanudumtext = pmanudumtext1;
     } else {
@@ -153,8 +153,8 @@ function showvideos(data) {
     var pvikum = document.createElement('p');
     pvikum.setAttribute('class', 'lidinn');
     var pvikumtext = 0;
-    var pvikumtext1 = document.createTextNode('Fyrir ' + vikum + ' vikum síðan');
-    var pvikumtext2 = document.createTextNode('Fyrir ' + vikum + ' viku síðan');
+    var pvikumtext1 = document.createTextNode('Fyrir ' + vikum + ' vikum s\xED\xF0an');
+    var pvikumtext2 = document.createTextNode('Fyrir ' + vikum + ' viku s\xED\xF0an');
     if (vikum > 1) {
       pvikumtext = pvikumtext1;
     } else {
@@ -169,8 +169,8 @@ function showvideos(data) {
     var pdogum = document.createElement('p');
     pdogum.setAttribute('class', 'lidinn');
     var pdogumtext = 0;
-    var pdogumtext1 = document.createTextNode('Fyrir ' + dogum + ' dögum síðan');
-    var pdogumtext2 = document.createTextNode('Fyrir ' + dogum + ' degi síðan');
+    var pdogumtext1 = document.createTextNode('Fyrir ' + dogum + ' d\xF6gum s\xED\xF0an');
+    var pdogumtext2 = document.createTextNode('Fyrir ' + dogum + ' degi s\xED\xF0an');
     if (dogum > 1) {
       pdogumtext = pdogumtext1;
     } else {
@@ -185,8 +185,8 @@ function showvideos(data) {
     var pklst = document.createElement('p');
     pklst.setAttribute('class', 'lidinn');
     var pklsttext = 0;
-    var pklsttext1 = document.createTextNode('Fyrir ' + klst + ' klukkustundum síðan');
-    var pklsttext2 = document.createTextNode('Fyrir ' + klst + ' klukkustund síðan');
+    var pklsttext1 = document.createTextNode('Fyrir ' + klst + ' klukkustundum s\xED\xF0an');
+    var pklsttext2 = document.createTextNode('Fyrir ' + klst + ' klukkustund s\xED\xF0an');
     if (klst > 1) {
       pklsttext = pklsttext1;
     } else {
@@ -261,6 +261,11 @@ var program = function () {
 
           showBorder();
         }
+        /*
+        () => {
+        return Object.categories(categories).map(title => stuff(title)).data();
+        showcategories({ title });
+        }*/
       } catch (err) {
         _didIteratorError = true;
         _iteratorError = err;
