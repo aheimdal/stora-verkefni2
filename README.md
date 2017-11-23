@@ -11,7 +11,7 @@ virkni hennar keyrð með javascript skipunum. Í undirmöppu þá höfum við s
 Ekki er hægt að keyra síðunna án þess að vera tengdur neti, þó er hægt að notast við npm forrit í gegnum cmd sem heitir browser-sync til
 að keyra local web-server sem virkar eins og net en er þó ekki tengt neti.
 
-Hægt er að finna þetta verkefni á netinu á slóð <url> . Hér getur þú notandi góður vafrað á milli myndbanda sem þér langar að spila.  
+Hægt er að finna þetta verkefni á netinu á slóð https://notendur.hi.is/~ahh30/vefforritun/hopverkefni2/index.html . Hér getur þú notandi góður vafrað á milli myndbanda sem þér langar að spila.  
 
 Hægt er að nálgast enn frekari upplýsingar um vefsíðuna á Github < https://github.com/aheimdal/stora-verkefni2 >
 
@@ -19,7 +19,7 @@ Við höfum gróflega farið yfir uppsetningu verkefnisins hér fyrir ofan en vi
 
 Skipting og skipulag
 - tvær html skrár sem eru síðurnar okkar (index.html, video.html)
-- 2 folder sem innhalda (video/16-9.png, bunny.mp4, bunny.png, small.mp4, small.png, img/back.svg, fullscreen.svg, mute.svg, next.svg, 
+- 2 folder sem innhalda (video/16-9.png, bunny.mp4, bunny.png, small.mp4, small.png, img/back.svg, fullscreen.svg, mute.svg, next.svg,
 pause.svg, play.svg, unmute.svg)
 - eina .css skrár (styles.css)
 - eina .scss skrá (styles.scss)

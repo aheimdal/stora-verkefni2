@@ -1,4 +1,4 @@
-const API_URL = '/videos.json';
+const API_URL = 'videos.json';
 
 /*
 * Fall sem býr til aðalfyrirsögn með html
@@ -49,7 +49,7 @@ function video(e, id) {
 
   sessionStorage.setItem('Id', id);
 
-  window.location.href = `/video.html?id=${idno}`;
+  window.location.href = `video.html?id=${idno}`;
 }
 /*
 * Fall sem býr til myndir af videoum með titli, aldri videos og lengd með html

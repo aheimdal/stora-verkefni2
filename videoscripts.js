@@ -1,4 +1,4 @@
-const API_URL = '/videos.json?id=';
+const API_URL = 'videos.json?id=';
 
 /* býr til html fyrir villuskilaboð */
 function showHeading() {
