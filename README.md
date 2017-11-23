@@ -4,14 +4,11 @@ Hópverkefni 2 - 2017
 Þetta README.md skjal inniheldur upplýsingar um hvernig skal keyra "stora-verkefni2" sem er seinna hópaverkefni í "TÖL107G" Háskóla
 Íslands haustönnina 2017.
 
-Þessi vefsíða er keyrð með hefbundnum netvöfrum líkt og CHROME, Firefox, EDGE og fleiri. Þessi síða er uppsett á þann hátt að það eru
-html skrár sem eru einskonar beinagrind vef-síðunnar og eru stílsíður notaðar til að umbreyta síðunni í það útlit sem var óskað eftir og
-virkni hennar keyrð með javascript skipunum. Í undirmöppu þá höfum við sass(.scss) skrár sem virka eins og super css, sem er notað til að breyta síðunni. Javascript er notað til að bæta inn efni síðunnar eftir því sem er beðið um, ef síðan nær ekki samband við gagnagrunn þá kemur upp villa. Ef tiltekið efni sem er valið á aðalsíðu finnst ekki þá kemur villa.
+Þessi vefsíða er keyrð með hefbundnum netvöfrum líkt og CHROME, Firefox, EDGE og fleiri. Þessi síða er uppsett á þann hátt að það eru html skrár sem eru einskonar beinagrind vef-síðunnar og eru stílsíður notaðar til að umbreyta síðunni í það útlit sem var óskað eftir og virkni hennar keyrð með javascript skipunum. Í undirmöppu þá höfum við sass(.scss) skrár sem virka eins og super css, sem er notað til að breyta síðunni. Javascript er notað til að bæta inn efni síðunnar eftir því sem er beðið um, ef síðan nær ekki samband við gagnagrunn þá kemur upp villa. Ef tiltekið efni sem er valið á aðalsíðu finnst ekki þá kemur villa.
 
-Ekki er hægt að keyra síðunna án þess að vera tengdur neti, þó er hægt að notast við npm forrit í gegnum cmd sem heitir browser-sync til
-að keyra local web-server sem virkar eins og net en er þó ekki tengt neti.
+Ekki er hægt að keyra síðunna án þess að vera tengdur neti, þó er hægt að notast við npm forrit í gegnum cmd sem heitir browser-sync til að keyra local web-server sem virkar eins og net en er þó ekki tengt neti.
 
-Hægt er að finna þetta verkefni á netinu á slóð https://notendur.hi.is/~ahh30/vefforritun/hopverkefni2/index.html . Hér getur þú notandi góður vafrað á milli myndbanda sem þér langar að spila.  
+Hægt er að finna þetta verkefni á netslóðinni https://notendur.hi.is/~ahh30/vefforritun/hopverkefni2/index.html. Hér getur þú notandi góður vafrað á milli myndbanda sem þig langar að spila.  
 
 Hægt er að nálgast enn frekari upplýsingar um vefsíðuna á Github < https://github.com/aheimdal/stora-verkefni2 >
 
