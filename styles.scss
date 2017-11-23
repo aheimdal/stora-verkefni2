@@ -25,6 +25,18 @@ main {
   flex-direction: row;
 }
 
+@media (max-width: 1200px) {
+  .takkar {
+    padding: 0.75em;
+    width: 3.5em;
+  }
+
+  .vidbtn {
+    width: 5%;
+  }
+
+}
+
 @media (max-width: 1000px) {
   .leigan {
     margin-left: 1em;
